@@ -278,5 +278,283 @@ for($i=1; $i<=6;$i++){
 ?>
 
 <?php
-?>
+/*
+$current_file=basename($_SERVER['PHP_SELF']);
+echo $current_file."<br>";
 
+$text='Php Tutorial';
+$text=preg_replace('/(\b[a-z])/i','<span style="color:red;">\1</span>',$text);
+echo $text;
+
+for($i=1;$i<7;$i++){
+    for($j=1;$j<7;$j++){
+        if($j==1){
+            echo str_pad($i*$j,2," ",STR_PAD_LEFT);
+        }else{
+            echo str_pad($i*$j,4," ",STR_PAD_LEFT);
+        }
+
+    }
+
+    echo "<br>";
+}
+
+$color=array('white','green','red');
+foreach($color as $c){
+echo  $c ." ";
+}
+sort($color);
+echo "<ul>";
+foreach($color as $y){
+    echo "<li>$y</li>";
+}
+echo "</ul>";
+
+$ceu=array("Italy"=>"Rome","Luxemburg"=>"Luxembutg");
+arsort($ceu);
+foreach($ceu as $country =>$caapital){
+    echo "The capital of $country is $caapital";
+}
+
+
+$x = array(1, 2, 3, 4, 5);
+ var_dump($x);
+ unset($x[3]);
+ $x = array_values($x);
+ echo '<br>
+';
+var_dump($x);
+
+
+
+$original = array('1','2','3','4','5');
+echo 'Original array:'."<br>";
+foreach($original as $x){
+    echo" <ul>";
+    echo $x;
+    echo "</ul>";
+}
+
+$inserted='$';
+array_splice($original,3,0,$inserted);
+echo "After inserting '$' array looks :<br>";
+foreach($original as $y){
+    echo "$y ";
+}
+
+
+$my_array = array("abcd","abc","de","hjjj","g","wer");
+$new_array=array_map('strlen',$my_array);
+echo "The shortest:".min($new_array);
+echo "The longest:".max($new_array);
+
+
+
+$n=range(11,20);
+shuffle($n);
+for($x=0;$x<10;$x++){
+    echo $n[$x].' ';
+}
+
+$colors= array("Red","Green","Blue");
+
+echo $colors[0];
+
+
+$x=4;
+$y=5;
+echo $x+$y;
+echo "<br>";
+echo $x*$y;
+
+
+$x=5;
+$y=10;
+function myTest(){
+    global $x,$y;
+    $y=$x+$y;
+
+}
+myTest();
+echo $y;
+
+
+
+
+$x=5;
+$y=10;
+function myTest(){
+$GLOBALS['y'] += $GLOBALS['x'];
+}
+myTest();
+echo $y;
+
+function myTest(){
+    static $x=0;
+    echo $x;
+    $x++;
+}
+myTest();
+myTest();
+myTest();
+
+
+$txt1="Learn PHP";
+$txt2="W3School.com";
+$x=5;
+$y=4;
+echo "<h2>" .$txt1."</h2>";
+print $x+$y;
+
+$x=4565;
+var_dump($x);
+$y='kjsdhk';
+var_dump($y);
+$x=45.65;
+var_dump($x);
+
+
+$cars = array("Volvo","BMW","Toyota");
+var_dump($cars);
+
+
+
+class Car{
+
+    function Car(){
+        $this->model="VW";
+    }
+
+}
+$herbi=new Car();
+echo $herbi->model;
+
+
+$name="Sixkerimov ";
+echo strlen($name);
+echo "<br>";
+echo str_word_count($name);
+echo "<br>";
+echo strrev($name);
+echo "<br>";
+$name="Sixkerimov";
+echo strpos($name,"mov");
+
+$name="Sixkerimov";
+
+echo str_replace("mov","rara",$name);
+
+
+define("Greet","Welcome to your school");
+
+function myTest(){
+    echo Greet;
+}
+
+myTest();
+
+$x=100;
+$y=50;
+if ($x==10 || $y==50){
+    echo "Hello World";
+}
+
+$favcolor="dark";
+switch($favcolor){
+
+    case "red":
+    echo "Your favourite color is Red";
+    break;
+    case "green":
+    echo "Your favourite color is green";
+    break;
+
+    default:
+    echo "Your favourite color is smt else";
+
+
+
+}
+
+
+$x = 1; 
+while($x <= 5){
+    echo "The number is $x<br>";
+    $x++;
+}
+
+
+$a=1;
+$b=3;
+$c=5;
+if($a==1||$a==2){
+    if($b==3||$b==4){
+        if($c==5 || $c==6){
+            echo "Hello world";
+        }
+    }
+}
+
+$a=1;
+$b=3;
+$c=5;
+if(($a==1||$b==2)&&($b==3||$b==4)&&($c==5||$c==6)){
+    echo " Hello world";
+}
+
+
+
+if(true){
+    $hi='Hello to all people';
+}
+echo $hi;
+
+$x=11;
+$y=2;
+if($x!=$y){
+    $x=$x*$y;
+}else{
+    $x=$x+$y;
+}
+echo $x;
+
+$arr = array("orange", "banana", "apple", "raspberry");
+$i=0;
+while ($i<count($arr)){
+ echo $arr[$i]."<br>";
+    $i++;
+}
+
+$one=array('10','20','30','40');
+$two=array('a','b','c','d');
+$i=0;
+while($i<count($one)){
+    reset($two);
+    while($a=each($two)){
+        echo $a[1].'-'.$one[$i].',';
+    }
+    $i++;
+}
+
+$arr=array(1,2,3,4);
+foreach($arr as $value){
+    $value=$value*2;
+}
+foreach($arr as $key =>$value){
+    echo "{$key}=>{$value}";
+    print_r($arr);
+    echo "<br>";
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+?>
