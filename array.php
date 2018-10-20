@@ -546,6 +546,95 @@ foreach($arr as $key =>$value){
     echo "<br>";
 }
 */
+<?php
+/*
+$a=1;
+while($a<=100){
+    if($a%4==0){
+        echo $a."<br>";
+    }
+    $a++;
+}
+
+$sum=0;
+$i=0;
+while($i<30 && $sum<300){
+    $sum=$sum+15;
+    $i++;
+    echo ($sum."<br>");
+}
+
+
+$user["name"]="Ivan";
+$user["login"]="root";
+$user["password"]="password";
+$user[]="2834 7293";
+
+foreach($user as $index=>$value){
+    echo "$index-$value<br>";
+}
+
+
+
+
+$a = array(10, 20, 52, 10, 526, 89, 96);
+$b=$a[0];
+
+foreach($a as $key=>$val){
+    if($val>$b){
+        $b=$val;
+    }
+
+}
+echo $b;
+
+echo "<br>";
+
+
+
+
+$arr = array(4,5,6,7,8,2,9,1);
+$val = $arr[0];
+$n = count($arr);
+
+for($i=1;$i<$n;$i++) {
+if($val<$arr[$i]) {
+    $val = $val;        
+} else {
+    $val = $arr[$i];
+}
+}
+print($val);
+
+$arr = array(100,40,1,5,17,50,4);
+$min = $arr[0];
+$max = $arr[0];
+foreach($arr as $key => $val){
+    if($min > $val){
+        $min = $val;
+    }
+    if($max < $val){
+        $max = $val;
+    }
+}	
+print $min;
+
+echo"<br>";
+print $max;
+
+echo"<br>";
+
+
+$arr = array(100,40,1,5,17,50,4);
+$max = $arr[0];
+
+foreach($arr as $key => $val){
+    if($max < $val){
+        $max = $val;
+    }
+}	
+
+print $max;
 
 
 
