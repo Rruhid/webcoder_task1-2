@@ -130,7 +130,36 @@ for($i=1;$i<=5;$i++)
         }
       echo "<br />";
   }
+//Task8 en cox isledilen herflerin miqdari
+
+if(!isset($letters[$bukva])) {
+	
+			$letters[$bukva] = 0;
+		}
+		$letters[$bukva]++;// = $letters[$bukva]+1;
 
 
+   }
+
+
+foreach ($letters as $key => $value) {
+	
+	print $key." ".$value." raz <br>";
+}
+//9Task en cox isledilen Herfin miqdari ve herflerin sayi
+<?php
+$str = "tsssqsss";
+$count=0;
+$patt = 'q';
+for($i=0;$i<strlen($str);$i++){
+    echo $str[$i].'<br>';
+    if($str[$i]==$patt) {
+        $count ++;
+    }
+
+} 
+print  $count;
+
+?>
 
 
