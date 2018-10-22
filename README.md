@@ -1,3 +1,4 @@
+//Task1-en cox isledilen herfin cemi
 $str = "tsssqsss";
 $count=0;
 $patt = 'q';
