@@ -161,5 +161,25 @@ for($i=0;$i<strlen($str);$i++){
 print  $count;
 
 ?>
+<?php
+$arr = [25,3,1,44,54,13,5,22,9122,22];
+$Amax = 0;
+$Amin = $arr[0];
+
+foreach($arr as $key => $value) {
+    
+    if($value >= $Amax ) {
+		$Amax = $value; 
+		
+	}
+	
+	if($value <= $Amin ) {		
+		$Amin = $value; 
+	}
+	
+
+}
+echo "boyuk reqem: $Amax <br>";
+echo "kicik reqem: $Amin";
 
 
