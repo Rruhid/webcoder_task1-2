@@ -825,7 +825,7 @@ echo "kicik reqem: $Amin";
 
 ?>
 
-//day-2
+//\
 
 <?php
 
@@ -1026,6 +1026,30 @@ echo "<br>";
 //echo "Saitlerin cemi $total";
  
 ?>
+day-3
+ <?php
+ //ancaq  sayini cixarca biler 
+$text = 'It is a long established fact that a reader' ;
+$count =0;
+
+
+for ($i=0;$i<strlen($text);$i++) { 
+    
+
+    $herf = $text[$i];
+
+    if($herf=='e') {
+        $count = $count+1;
+    }
+
+}
+echo $count;
+
+
+
+
+
+ ?>
 
 
 
