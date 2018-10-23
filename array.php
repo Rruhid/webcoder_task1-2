@@ -1098,10 +1098,18 @@ for($i=0;$i<=strlen($string)/2;$i++){
 
 }
 
+?>
+//Task
 
+<?php 
+$str = "1st example:
+        Alte Füchse gehen schwer in die Falle.    ";
+for($i=0;$i<=1;$i++){
+
+print_r(str_word_count($str, 1));
+}
 
 ?>
-
 
 
 
