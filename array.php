@@ -771,6 +771,24 @@ for($i=1;$i<=5;$i++)
         }
       echo "<br />";
   }
+  
+  //Task 7.5 Ulduzlarin tersine gelmesi
+  <?php
+ 
+ 
+   for($i=5;$i>=1;$i--)
+     {
+         for($j=0;$j<$i;$j++)
+             echo "* ";
+         echo "<br>";
+     }
+
+
+ ?>
+  
+  
+  
+  
 //Task8 en cox isledilen herflerin miqdari ve herf ozu
 <?php
 $text='Loremore recently with desktop  of Lorem Ipsum';
