@@ -771,22 +771,28 @@ for($i=1;$i<=5;$i++)
         }
       echo "<br />";
   }
-//Task8 en cox isledilen herflerin miqdari
-
+//Task8 en cox isledilen herflerin miqdari ve herf ozu
+<?php
+$text='Loremore recently with desktop  of Lorem Ipsum';
+for ($i=0;$i<strlen($text);$i++) {
+    
+   $bukva = $text[$i];
 if(!isset($letters[$bukva])) {
-	
-			$letters[$bukva] = 0;
-		}
-		$letters[$bukva]++;// = $letters[$bukva]+1;
-
+    
+         $letters[$bukva] = 0;
+     }
+     $letters[$bukva]++;// = $letters[$bukva]+1;
 
    }
 
-
 foreach ($letters as $key => $value) {
-	
-	print $key." ".$value." raz <br>";
+    
+ print $key." ".$value." raz <br>";
 }
+
+?>
+
+
 //9Task en cox isledilen Herfin miqdari ve herflerin sayi
 <?php
 $str = "tsssqsss";
