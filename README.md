@@ -1,3 +1,4 @@
+day-1
 //Task1-en cox isledilen herfin cemi
 $str = "tsssqsss";
 $count=0;
@@ -181,5 +182,57 @@ foreach($arr as $key => $value) {
 }
 echo "boyuk reqem: $Amax <br>";
 echo "kicik reqem: $Amin";
+
+?>
+
+//day-2
+
+
+<?php
+$someString = "orem Ipsum is simply dummy text of the printing andfgbdddfdewoosiiiooee";
+$total = 0;
+$massiv=[];
+$vowels = Array('a','e','i','o','u');
+for($i=0; $i<strlen($someString); $i++){
+        $currentChar = $someString[$i];
+
+  
+         for ($j = 0; $j < count($vowels); $j++) {
+        
+        $currentVowel = $vowels[$j];
+        
+        if ($currentChar == $currentVowel) {
+            $total++;
+            $massiv[] = $currentVowel;
+          }
+          
+        }
+   }  
+
+echo "All vowels that are found: <br>";
+ 
+foreach($massiv as $vowel) {
+    echo "- $vowel<br>";
+}
+ 
+echo "<hr>";
+ 
+echo "Total: $total of them";  
+ 
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
