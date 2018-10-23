@@ -974,9 +974,58 @@ echo "<br>";
  echo "Samitlerin  cemi $tota";
 ?>
 
+//Task butun olan saitlerden bir denesin cixartmaq 
 
 
 
+<?php
+$someString = "bdddfdewoosuiiiooee";
+$total = 0;
+$massiv=[];
+
+$vowels = Array('a','e','i','o','u');
+for($i=0; $i<strlen($someString); $i++){
+        $herf = $someString[$i];
+
+  
+         for ($j = 0; $j < count($vowels); $j++) {
+
+         $saitherf = $vowels[$j];
+
+          if ($herf == $saitherf) {
+            $massiv[] = $saitherf;
+
+          }
+
+
+        }
+   }  
+
+echo "Butun saitler <br>";
+  
+  if(!isset($massiv)){
+    $massiv=0;
+    $massiv++;
+
+
+  }
+foreach(array_unique($massiv) as $vowel=>$value){
+ echo $value;
+
+    print($vowel);
+
+
+
+}
+echo "<br>";
+
+
+//echo "$total";
+
+
+//echo "Saitlerin cemi $total";
+ 
+?>
 
 
 
