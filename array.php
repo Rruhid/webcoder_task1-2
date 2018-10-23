@@ -1184,10 +1184,27 @@ echo("\n");
 echo(getMin($array)); 
 ?>
 
+Task cumlenin ikinci hissenisi  cixartmaq
+
+<?php
 
 
+$string="sdjfh ssssskdh sdkj sdh";
+$count=0;
 
+for($i=0;$i<strlen($string);$i++){
 
+    if($i<= (strlen($string)/2)){
+     print $i."---".strlen($string)/2;
+    }else{
+        echo $string[$i];
+  }
+
+}
+ 
+?>
+
+ 
 
 
 
