@@ -1130,15 +1130,18 @@ print_r(str_word_count($str, 1));
 ?>
 //Ulduzlarin 
 cixmasi
- <?php
-   for($i=5;$i>=1;--$i)
+<?php
+ 
+ 
+   for($i=5;$i>=1;$i--)
      {
-         for($j=0;$j<$i-1;++$j)
+         for($j=0;$j<$i;$j++)
              echo "* ";
-         echo "<br />";
+         echo "<br>";
      }
 
 
+ ?>
  ?>
 
 
