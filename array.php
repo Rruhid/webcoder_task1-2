@@ -1110,16 +1110,18 @@ print_r(str_word_count($str, 1));
 }
 
 ?>
-//Ulduzlarin tersine cixmasi
-  for($i=5;$i>=1;--$i)
+//Ulduzlarin 
+cixmasi
+ <?php
+   for($i=5;$i>=1;--$i)
      {
-         
-         for($j=$i;$j<=2*$i-1;++$j)
-           echo "* ";
          for($j=0;$j<$i-1;++$j)
              echo "* ";
          echo "<br />";
      }
+
+
+ ?>
 
 
 
