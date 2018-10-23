@@ -827,41 +827,39 @@ echo "kicik reqem: $Amin";
 
 //day-2
 
-
 <?php
-$someString = "orem Ipsum is simply dummy text of the printing andfgbdddfdewoosiiiooee";
+
+$someString = "bdddfdewoosiiiooee";
 $total = 0;
 $massiv=[];
 $vowels = Array('a','e','i','o','u');
 for($i=0; $i<strlen($someString); $i++){
-        $currentChar = $someString[$i];
+        $herf = $someString[$i];
 
   
          for ($j = 0; $j < count($vowels); $j++) {
-        
-        $currentVowel = $vowels[$j];
-        
-        if ($currentChar == $currentVowel) {
-            $total++;
-            $massiv[] = $currentVowel;
+
+         $saitherf = $vowels[$j];
+
+          if ($herf == $saitherf) {
+            $massiv[] = $saitherf;
+           $total++;
           }
-          
+
+
         }
    }  
 
-echo "All vowels that are found: <br>";
+echo "Butun saitler <br>";
  
 foreach($massiv as $vowel) {
-    echo "- $vowel<br>";
+    echo "$vowel ";
 }
- 
-echo "<hr>";
- 
-echo "Total: $total of them";  
- 
-
+echo "<br>";
+echo "Saitlerin cemi $total";
 
 ?>
+
 day-2
 //Task-1-Samit herflerin cixisi ve sayi
 <?php
