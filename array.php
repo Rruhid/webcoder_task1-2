@@ -863,7 +863,7 @@ echo "Total: $total of them";
 
 ?>
 day-2
-
+//Task-1-Samit herflerin cixisi ve sayi
 <?php
 $someString = "orem Ipsum is simply dummy text of the printing andfgbdddfdewoosiiiooee";
 $total = 0;
@@ -894,6 +894,7 @@ foreach($massa as $const) {
 ?>
 <br>
 <?php
+//Sait herflerin cixisi ve sayi
 $someString = "orem Ipsum is simply dummy text of the printing andfgbdddfdewoosiiiooee";
 $total = 0;
 $massiv=[];
@@ -924,7 +925,56 @@ echo "<br>";
 echo "Saitlerin cemi $total";
  
 ?>
+//saitlerin ve samitlerin bir funksiyanin aaltinda cixisi ve onlarin sayi
+<?php
+$someString = "orem Ipsum is simply dummy text of the printing andfgbdddfdewoosiiiooee";
+$total = 0;
+$tota = 0;
+$massiv=[];
+$massa=[];
+$consontants=Array('m','s','p','f','t','h','g','c','z','z');
+$vowels = Array('a','e','i','o','u');
+for($i=0; $i<strlen($someString); $i++){
+        $currentChar = $someString[$i];
 
+  
+         for ($j = 0; $j < count($vowels); $j++) {
+        
+         $currentVowel = $vowels[$j];
+        
+          if ($currentChar == $currentVowel) {
+            $massiv[] = $currentVowel;
+            $total++;
+          }
+      }
+
+            for ($a = 0; $a < count($consontants); $a++) {
+        
+         $currentConsontant = $consontants[$a];
+        
+          if ($currentChar == $currentVowel) {
+            $massa[] = $currentConsontant;
+            $tota++;
+          }
+
+
+        }
+   } 
+
+echo "Saitler ve samitler  <br>";
+ 
+foreach($massiv as $vowel) {
+    echo "$vowel ";
+}
+echo '<br>';
+foreach($massa as $cons) {
+    echo "$cons ";
+}
+echo "<br>";
+echo "Saitlerin cemi $total";
+echo "<br>";
+ echo "Samitlerin  cemi $tota";
+?>
 
 
 
