@@ -1045,11 +1045,36 @@ for ($i=0;$i<strlen($text);$i++) {
 }
 echo $count;
 
-
-
-
-
  ?>
+ 
+ 
+ 
+ $simvoli = array();
+$text = 'privet prog';
+
+
+ for($i=0;$i<strlen($text);$i++) {
+
+ 	$bukva = $text[$i];
+
+
+
+ 	if (in_array( $bukva,$simvoli))
+ 	{
+ 		
+ 	}
+
+ 	else  {
+
+    array_push($simvoli, $bukva);
+
+}
+     
+
+ 	
+
+}
+ print_r($simvoli);
 
 
 
