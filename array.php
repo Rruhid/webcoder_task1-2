@@ -1142,7 +1142,16 @@ cixmasi
 
 
  ?>
- ?>
+ //cumleni arraya cixartmasi
+ $text=array("Lorem", "Ipsum" ,"is", "simply" ,"dummy", "text", "of" ,"the", "printing" ,"and" ,"typesetting", "industry");
+
+
+$text2=array();
+
+
+array_push($text2, $text);
+print_r($text2);
+
 
 
 
