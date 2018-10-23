@@ -1075,8 +1075,26 @@ $text = 'privet prog';
 
 }
  print_r($simvoli);
+ 
+ //Cumlenin bir terefinni tapmaq
+
+<?php
 
 
+
+$string="sdjfh ssssskdh sdkj sdh";
+$count=0;
+
+for($i=0;$i<=strlen($string)/2;$i++){
+
+    echo $string[$i];
+
+
+}
+
+
+
+?>
 
 
 
