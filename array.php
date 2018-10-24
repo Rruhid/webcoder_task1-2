@@ -1318,6 +1318,58 @@ for($x=strlen($name)-1; $x>=0; $x--)
 }
 
 ?>
+//Vurma cedveli
+
+
+<?php
+// $name=array('bag','ev','usaq');
+// $arr=[];
+// for($i=0;$i<count($name);$i++){
+//     $arr[]=$name[$i];
+
+// }
+// $value=implode(',',$arr);
+// echo $value;
+
+
+?>
+
+
+<?php
+// s
+
+?>
+
+<?php
+// function ruhid_implode($string){
+
+// for($i=0;$i<count($string); $i++){
+//    print  $string[$i].',';
+//   }
+// }
+
+//  ruhid_implode(['red','green','white']);
+
+?>
+
+
+
+
+
+
+
+
+<br>
+<br>
+<?php
+$a = 1;
+ 
+for($i=1; $i<=20; ++$i){
+  echo "$a * $i = ".$a * $i ."<br>";
+}
+
+
+?>
 
 
 
