@@ -1281,6 +1281,45 @@ for($i=1; $i<=20; ++$i){
 
 
 
+<?php
+$name="Ruhid";
+for($i=0;$i<strlen($name);$i++){
+    echo $name[4-$i].'<br>';
+}
+
+
+?>
+<br>
+<?php
+$name = "Ruhid";
+
+for($x=strlen($name)-1; $x>=0; $x--)
+{
+    echo $name[$x].'<br>';
+}
+
+?>
+//imya tersine
+<?php
+$name="Ruhid";
+for($i=0;$i<strlen($name);$i++){
+    echo $name[4-$i].'<br>';
+}
+
+
+?>
+<br>
+<?php
+$name = "Ruhid";
+
+for($x=strlen($name)-1; $x>=0; $x--)
+{
+    echo $name[$x].'<br>';
+}
+
+?>
+
+
 
 
 
