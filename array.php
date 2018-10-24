@@ -1229,6 +1229,30 @@ for($i=0;$i<strlen($name);$i++){
 
 ?>
 
+//Implode funksiyasi
+1.
+$string=['red','green','white'];
+$imp=[];
+for($i=0;$i<count($string); $i++){
+    $imp[]=$string[$i];
+}
+$value=implode(',',$imp);
+echo $value;
+
+
+
+
+2.
+function ruhid_implode($string){
+
+for($i=0;$i<count($string); $i++){
+   echo  $string[$i].',';
+  }
+}
+
+ ruhid_implode(['red','green','white']);
+
+
 
 
 
