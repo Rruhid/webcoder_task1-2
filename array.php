@@ -1204,7 +1204,16 @@ for($i=0;$i<strlen($string);$i++){
  
 ?>
 
- 
+ //ad tersine 
+ <?php
+$name = "Ruhid";
+
+for($x=strlen($name)-1; $x>=0; $x--)
+{
+    echo $name[$x].'<br>';
+}
+
+?>
 
 
 
