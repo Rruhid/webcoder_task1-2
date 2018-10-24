@@ -1215,7 +1215,19 @@ for($x=strlen($name)-1; $x>=0; $x--)
 
 ?>
 
+//Adin tersine yazilmasi
+<?php
+$name="Ruhid";
 
+
+for($i=0;$i<strlen($name);$i++){
+
+    echo $name[strlen($name)-1-$i].'<br>';
+    
+}
+
+
+?>
 
 
 
