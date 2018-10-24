@@ -1228,6 +1228,16 @@ for($i=0;$i<strlen($name);$i++){
 
 
 ?>
+////Adin tersine yazilmasi
+<?php
+$s="Oamr";
+for($a=3; $a<strlen($s); $a--) { 
+ 	echo $s[$a]."<br>";
+ 	if ($a==0)break;
+	}
+?>
+
+
 
 //Implode funksiyasi
 1.
