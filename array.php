@@ -1252,7 +1252,16 @@ for($i=0;$i<count($string); $i++){
 
  ruhid_implode(['red','green','white']);
 
+3.cikl
+<?php
+ 
+ for ($o=1; $o <=100; $o++){ 
+    if (!($o%7)==0){
+      echo "$o <br>";
+ }
+ }
 
+ ?>
 
 
 
