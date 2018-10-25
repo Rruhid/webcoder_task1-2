@@ -1459,6 +1459,97 @@ for ($i=0; $i < strlen($data); $i++) {
 
 
 ?>
+day-4
+<?php
+$data="How to split a string using explode";
+$split=explode(" ",$data);
+print_r($split);
+
+$data="How to split a string using explode";
+$split=explode(" ",$data);
+foreach ($split as $key => $value) {
+echo "[".$key."] - ".$value."<br>";
+}
+
+$data="How to split a string using explode";
+$exp=explode(" ",$data);
+foreach($exp as $key=>$value){
+    echo "$key-".$value."<br>";
+}
+
+
+function ruhid_implode($string){
+    for($i=0;$i<count($string); $i++){
+       echo  $string[$i].',';
+      }
+    }
+     ruhid_implode(['red','green','white']);
+?>
+
+
+
+
+<?php
+$data="How to split a string using explode";
+$split=explode(" ",$data);
+print_r($split);
+
+$data="How to split a string using explode";
+$split=explode(" ",$data);
+foreach ($split as $key => $value) {
+echo "[".$key."] - ".$value."<br>";
+}
+
+$data="How to split a string using explode";
+$exp=explode(" ",$data);
+foreach($exp as $key=>$value){
+    echo "$key-".$value."<br>";
+}
+
+
+function ruhid_implode($string){
+    for($i=0;$i<count($string); $i++){
+       echo  $string[$i].',';
+      }
+    }
+     ruhid_implode(['red','green','white']);
+?>
+
+<?php
+$name=array("asdf","fth","fsdg");
+$arr=[];
+
+for($i=0;$i<count($name);$i++){
+    $arr[]=$name[$i];
+}
+$name=(implode(",",$name));
+echo $name;
+?>
+
+
+<?php
+$var "Gmail is built on the idea ";
+
+$pieces = explode(" ", $var);
+foreach($pieces as $element)
+{
+echo $element." ";
+}
+
+?>
+<br>
+
+<?php
+$new=array('hello','htht','hthu');
+echo implode(',',$new);
+
+$var= "Gmail is built on the idea ";
+$pie=explode(" ",$var);
+print_r($pie);
+
+
+?>
+<br>
 
 
 
