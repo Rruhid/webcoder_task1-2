@@ -1436,6 +1436,31 @@ function ruhid_implode($delimiter, $string){
 print ruhid_implode('----',['red ','green ','white ','ewfs']);
 
 ?>
+<?php
+ $data="How to split a string using explode";
+ $split=explode(" ",$data);
+ print_r($split);
+ ?>
+ <br>
+
+<?php
+
+$data="How to split a string using explode";
+$value=0;
+$string='';
+$massiv=[];
+for ($i=0; $i < strlen($data); $i++) { 
+  $string.=$data[$i];
+    for($j=0;$j<=$i;$j++){
+        $massiv[]=$string[$j];
+  }   
+
+} print_r($massiv);
+
+
+?>
+
+
 
 
 
