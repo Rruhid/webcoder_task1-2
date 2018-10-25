@@ -1375,7 +1375,42 @@ for ($num = 0; $num <= 10; $num += 2) {
       echo "$num "; 
   }  
     
+//Nomrenin maxmimumumn getirilmesi
 
+<?php
+$number = array(3,5,6,1,2,7,8,10,9,4);
+
+function getMin($number)
+{
+    $count = count($number);
+    $min   = $number;
+    for ($i = 0; $i < $count; $i++){
+        if ($min > $number[$i] && $min = $number[$i]) {
+            
+          }  
+        }
+    return $min;
+}
+
+function getMax($number)
+{
+    $count = count($number);
+    $max   = $number[0];
+    for ($i = 0; $i < $count; $i++){
+        if ($max < $number[$i] && $max = $number[$i]) {
+            
+           } 
+        }
+    return $max;
+    
+}
+
+echo "minimum:";
+echo (getMin($number));
+echo "<br>";
+echo "maximum:";
+echo (getMax($number));
+?>
 
 
 
