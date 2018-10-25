@@ -1414,6 +1414,28 @@ echo (getMax($number));
 
 
 
+<?php
+function ruhid_implode($delimiter, $string){
+
+    $ko = '';
+    for($i=0;$i<count($string); $i++) {
+
+        if($i==count($string)-1) {
+            $ko .= $string[$i];
+        }
+        else {
+            $ko .= $string[$i].$delimiter;
+        }
+        
+    }  
+    return $ko ;
+  
+ 
+
+}
+print ruhid_implode('----',['red ','green ','white ','ewfs']);
+
+?>
 
 
 
