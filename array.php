@@ -1550,6 +1550,29 @@ print_r($pie);
 
 ?>
 <br>
+<?php
+
+$text="How to split a string using explode";
+$string='';
+$massiv= [];
+for ($i=0; $i < strlen($text); $i++) { 
+ if($text[$i] ==' '){
+   
+  $massiv[]=$string;
+  $string=' ';
+  
+}else{
+$string .=$text[$i];
+  }
+}
+if(!empty($massiv)){
+  
+  $massiv[] = $string;
+}
+print_r($massiv);
+
+
+?>
 
 
 
