@@ -1551,7 +1551,7 @@ print_r($pie);
 ?>
 <br>
 <?php
-
+//cumleni explode evezine basqa funksiya ile cixartmagi
 $text="How to split a string using explode";
 $string='';
 $massiv= [];
