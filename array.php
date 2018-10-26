@@ -1627,7 +1627,56 @@ foreach($massiv as $key=>$val) {
 }
 var_dump($massiv);
 
+File Handling
+<?php
+// r=reading
+// w=writing
+// a=append 
+// r+=reading/writing
+// w+=writing/reading/creating a file
+//fopen
+//fwrite
+//feof — Проверяет, достигнут ли конец файла
+//fgets — Читает строку из файла
+//fclose — Закрывает открытый дескриптор файла
+//file_put_contents — Пишет данные в файл
+?>
+<br>
+<?php
 
+// $h=fopen('data.txt','w+');
+
+// if(fwrite($h,'Text to in a file')==true){
+//   echo "yes";
+// };
+
+
+// $handle=fopen('data.txt','r+');
+// while(!feof($handle)){
+//   echo str_replace("\r\n","<br/>",fgets($handle));
+// }
+// fclose($handle);
+
+
+// $handle=fopen('data.txt','a+');
+// fwrite($handle,"I just want to came");
+// fclose($handle);
+
+
+
+
+?>
+<?php
+
+//fopen,fwrite,fclose
+ file_put_contents('data.txt','You can put annything');
+ echo file_get_contents('data.txt');
+
+
+
+
+
+?>
 
 
 
