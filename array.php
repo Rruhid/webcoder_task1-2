@@ -1597,6 +1597,35 @@ for ($i=0; $i < strlen($text); $i++) {
 }
 
 ?>
+$a = ['tect'=>'ruhid'];
+ //$a['tect']='Ruhid';
+ $a['tect'][0] = 'R';
+print_r($a);
+echo "<br>";
+
+$text="how to split a string using explode ";
+$string='';
+$massiv= [];
+for ($i=0; $i < strlen($text); $i++) { 
+ if($text[$i] ==' '){
+  
+  $massiv[]=$string;
+   $string=' ';
+  
+}else{
+ $string .=$text[$i];
+  }
+}
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+foreach($massiv as $key=>$val) {
+  $massiv[$key]=ucfirst($val);
+
+}
+var_dump($massiv);
 
 
 
