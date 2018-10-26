@@ -1573,6 +1573,30 @@ print_r($massiv);
 
 
 ?>
+Task//
+<?php
+$text="how to split a string using explode ";
+$string='';
+$massiv= [];
+for ($i=0; $i < strlen($text); $i++) { 
+ if($text[$i] ==' '){
+  
+  $massiv[]=$string;
+
+   $string=' ';
+   
+  
+}else{
+ $string .=$text[$i];
+  }
+
+}
+
+  foreach($massiv as $value){
+  echo $value;
+}
+
+?>
 
 
 
