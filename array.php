@@ -1715,6 +1715,12 @@ for($i=0; $i<15; $i++) {
 	$sen .= '*';
 	
 }
+$nicat="nicat";
+
+for($i=strlen($nicat)-1;$i>=0;$i--) {
+	print $nicat[$i]."<br>";
+};
+
 
 
 
