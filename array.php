@@ -1707,6 +1707,14 @@ if(isset($_POST['submit'])){
 
 
 ?>
+$sen='*';
+
+for($i=0; $i<15; $i++) {
+
+	echo $sen.'<br>';                
+	$sen .= '*';
+	
+}
 
 
 
