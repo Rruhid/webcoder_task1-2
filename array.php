@@ -1672,8 +1672,38 @@ File Handling
  file_put_contents('data.txt','You can put annything');
  echo file_get_contents('data.txt');
 
+?>
+//Qeydiyyat 
 
+<?php
+if(isset($_POST['submit'])){
+	$var=file("data.txt");
+	$userData = $_POST['email'] . " " . $_POST['password'] . "\r\n";
+	$lines=0;
+		$db = fopen("data.txt", "a+");
+		foreach($var as $key=>$value){
+			$user = (explode(' ', $value));
+			if ($_POST["password"] === $_POST["confirm_password"]) {
+					//print_r($value);
+				if (trim($user[0]) == $_POST['email']) {
+					$lines++;
+				}
+				break;
+				
+			}else{
+				echo"parol var";
+				break; 
+			}	 
+		}
+			if($lines){
+					echo "Bu email movcuddur  ";
+				}else{
+				 fwrite($db,$userData."\r\n");
+				 fclose($db);
+				 echo "qeydiyatdan kecdiniz ";
+			  }
 
+} 
 
 
 ?>
