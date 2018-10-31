@@ -1765,4 +1765,23 @@ for ($i = 0; $i < count($name); $i++) {
 
 
 
+$names = array('jake', 'rita', 'ali', 'addert', 'siryteeeeeee', 'skeueei', 'wsewwauie', 'aaaaweefio');
+
+$ucdenazherf=[];
+$ucdencoxherf=[];
+
+foreach($names as $name){
+    $count=preg_match_all('/[aeiou]/',$name);
+    if($count>3){
+        $ucdenazherf[]=$name;
+    }
+    if($count<3){
+        $ucdencoxherf[]=$name;
+    }
+}
+print_r($ucdenazherf);
+echo"<br>";
+print_r($ucdencoxherf);
+
+
 
