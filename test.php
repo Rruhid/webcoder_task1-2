@@ -1,4 +1,4 @@
-//Practice 
+//Practice Practice 30-oktyabr
  <?php
 $str="en cox enaan nenjnaadfnn";
 $count=0;
@@ -120,7 +120,14 @@ foreach($dizi as $anatar =>$deger){
 // 2.sirada c var.
 // 3.sirada d var.
 
-
+ 
+ //The length of a string
+$name="how get list of words from array which has more and less than 3 vowels separately  by only using a logic without any substr_count or preg_match?";
+$total=0;
+ for($i=0;$i<strlen($name);$i++){
+    $total++;
+ }
+ echo $total;
 
 
 
