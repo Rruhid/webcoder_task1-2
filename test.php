@@ -81,6 +81,24 @@ for($i=date("Y");$i<=date("Y")+4;$i++){
     echo "<option value=\"$i\">$i</option>\n\r";
 }
 ?>
+ 
+ 
+for($i=0;$i<=10;$i++){
+  echo"$i";
+}
+echo "<br>";
+for($i=10;$i>5;$i--){
+    echo $i;
+}
+echo"<br>";
+for($i=2;$i<=12;$i+=2){
+    echo "$i";
+}
+echo"<br>";
+for($i=22;$i>10;$i-=2){
+    echo $i;
+}
+
 
 
 
