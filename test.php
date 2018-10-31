@@ -98,7 +98,11 @@ echo"<br>";
 for($i=22;$i>10;$i-=2){
     echo $i;
 }
-
+$dizi=array(1,2,3,4);
+foreach($dizi as $say){
+    $sum=$say*2;
+    echo "$sum,";
+}
 
 
 
