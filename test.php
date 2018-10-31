@@ -104,6 +104,23 @@ foreach($dizi as $say){
     echo "$sum,";
 }
 
+ <?php
+$letter = range("a","d");
+print_r ($letter);
+?>
+ 
+ 
+$dizi=range("a","d");
+foreach($dizi as $anatar =>$deger){
+    echo "$anatar.sirada $deger var.<br>";
+}
+//output
+// 0.sirada a var.
+// 1.sirada b var.
+// 2.sirada c var.
+// 3.sirada d var.
+
+
 
 
 
