@@ -129,6 +129,54 @@ $total=0;
  }
  echo $total;
 
+post
+ <?php
+if(isset($_POST['submit_reg'])){
+	$var=file("data.txt");
+	$userData = $_POST['email'] . " " . $_POST['password'] . "\r\n";
+	$lines=0;
+		$db = fopen("data.txt", "a+");
+		foreach($var as $key=>$value){
+			$user = (explode(' ', $value));
+			if ($_POST["password"] === $_POST["confirm_password"]) {
+					//print_r($value);
+				if (trim($user[0]) == $_POST['email']) {
+					$lines++;
+				}
+				break;
+				
+			} 
+		}
+			if($lines){
+					echo "The email is already exists ";
+				}else{
+				 fwrite($db,$userData."\r\n");
+				 fclose($db);
+				 echo "you are registered successfully ";
+			  }
+} 
+?>
 
+<?php
+if (isset($_POST['submit_log'])) {
+	$email =isset($_POST['email']);
+	$password =isset($_POST['password']);
+    $file = explode( PHP_EOL, file_get_contents( "data.txt" ));
+    $auth = false;
+ foreach( $file as $line ) {
+	list($email, $password) = explode(" ", $line);
+
+    if ($_POST['email'] == $email && $_POST['password'] == $password) {
+        $auth =true;
+        break; 
+    }
+}
+		if($auth) {
+			echo "Login successfull!";
+		} else {
+			echo "Invalid username or password";
+		}
+	}
+?>
 
 
