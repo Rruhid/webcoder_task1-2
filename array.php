@@ -1721,6 +1721,48 @@ for($i=strlen($nicat)-1;$i>=0;$i--) {
 	print $nicat[$i]."<br>";
 };
 
+//her ikinci herf boyuk herfle yazilmalidir
+$string="sdfsdrfgisd";
+
+for($i=0;$i<strlen($string);$i++){
+    if(!($i%2==0)){
+        echo strtoupper ($string[$i]);
+    }else{
+       echo  strtolower($string[$i]);
+    }
+}
+//sozxdat massiv i zapisat tuda 10 slov potom sozdat dva pustix massiva 
+//esli v slovax bolse 3 glassnix ix dat v odin massiv
+// vprotivnom sllucae v drugoy massiv
+
+$name = array('jake', 'rita', 'ali', 'addert', 'siryteee', 'skeueei', 'wsewwauie', 'aaaaweefio');
+$vowels = array('a', 'e', 'i', 'o', 'u');
+
+$matches = [];
+$matches2 = [];
+$total2 = 0;
+$total = 0;
+for ($i = 0; $i < count($name); $i++) {
+    
+    for ($j = 0; $j < count($vowels); $j++) {
+        $total += substr_count($name[$i], $vowels[$j]);
+        if($total >4){
+            $matches[] = $name[$i];
+            break;
+        }
+    
+        $total2 += substr_count($name[$i], $vowels[$j]);
+        if($total2 < 3){
+            $matches2[] = $name[$i];
+            break; //exit inner loop
+        }
+    }
+ }
+
+ print_r($matches);
+ echo "<br>";
+ print_r($matches2);
+
 
 
 
