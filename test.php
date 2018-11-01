@@ -178,5 +178,111 @@ if (isset($_POST['submit_log'])) {
 		}
 	}
 ?>
+				  /*
+$i = 1;
+
+ // register start
+ if (isset($_POST['name'])){
+     $name = $_POST['name'];
+     $surname= $_POST['surname'];
+     $email = $_POST['email'];
+     $password = $_POST['password'];
+     $rpassword = $_POST['rpassword'];
+     $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
+     $cavab = fread($myfile,filesize("newfile.txt"));
+     $cavab2 = explode(":",$cavab);
+     print_r($cavab2);
+     fclose($myfile);
+     for ($i = 0;$i < count($cavab2);$i++) {
+         if ($cavab2[$i] == $email) {
+             $k = 1;
+             echo 'bu emailde qeydiyyatmiz artiq movcuddur';
+             break;
+
+         }
+     }
+     if ($password == $rpassword && $k != 1){
+
+    $file = 'newfile.txt';
+// // Dosyaya artirilacaq yeni kişi
+$person = ':'.$email.':'.$password.':'.$name.':'.$surname."\r\n";
+file_put_contents($file, $person, FILE_APPEND);
+     echo 'qeyd oldunuz';
+
+     }
+     else{
+         echo '<br>oooops<br>';
+     }
+ }
+//register end
+//login start
+ if (isset($_POST['loginemail'])){
+     $loginmail = $_POST['loginemail'];
+     $loginpassword= $_POST['loginpassword'];
+     $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
+      $cavab = fread($myfile,filesize("newfile.txt"));
+     $cavab2 = explode(":",$cavab);
+    fclose($myfile);
+     for ($i = 0;$i < count($cavab2);$i++) {
+         if ($cavab2[$i] == $loginmail) {
+            $i++;
+             if ($cavab2[$i] == $loginpassword) {
+                 $y = 1;
+                 $content =<<<HTML
+<div class="reset">
+    <h3>parolu deyisdir</h3>
+    <form action="" enctype="multipart/form-data" method="post">
+    <input type="text" value="{$loginmail}" name="oldmail"><br>
+        <label>evvelki parol</label><input type="text" name="oldpassword"><br>
+        <label>yeni parol</label><input type="password" name="resetpassword"><br>
+        <input type="submit">
+
+    </form>
+</div>
+HTML;
+        echo $content;
+                 break;
+             }
+         }
+     }
+     if ($y != 1){
+         echo 'login ve ya parol sef yazilib';
+     }
+
+ }
+//login end
+// reset password start
+ if (isset($_POST['oldpassword'])) {
+     $oldmail = $_POST['oldmail'];
+     $oldpassword = $_POST['oldpassword'];
+     $newpassword = $_POST['resetpassword'];
+     echo $oldmail.'<br>';
+
+     $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
+     $cavab = fread($myfile, filesize("newfile.txt"));
+     $cavab2 = explode(":", $cavab);
+     fclose($myfile);
+     for ($i = 0; $i < count($cavab2); $i++) {
+         if ($cavab2[$i] == $oldmail) {
+             $i++;
+             if ($cavab2[$i] == $oldpassword) {
+                 $cavab2[$i] = $newpassword;
+
+                // parolu deyis file code
+                 $cavab2 = implode(':',$cavab2);
+                 $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+                 fwrite($myfile, $cavab2);
+                 fclose($myfile);
+                // parolu deyis file code end
+             }
+             else{
+                 echo 'kohne parolnuz uygun gelmir';
+             }
+             break;
+         }
+     }
+ }
+ // reset password end
+ */
 
 
