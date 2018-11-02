@@ -1,4 +1,3 @@
-//Qeyiyyat sistemi
 
  
 <?php
@@ -64,21 +63,39 @@ if (isset($_POST['submit_log'])) {
 
 if (isset($_POST['submit_change'])) {
 
+$email=$_POST['email'];
+$password=$_POST['password'];
+$new=$_POST['new_password'];
+$count=0;
+	$file = file("data.txt", FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES);
+	$auth=false;
 
-    $file = file("data.txt", FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES);
 
-    $userData = $_POST['email']." ".$_POST['password'];
-
-    foreach ($file as $key => $value) {
-        if ($value === $userData) {
-            $userData = $_POST['email']." ".$_POST['new_password'];
-        } 
-    }
-    $db = fopen("data.txt", "a+");
-    fwrite($db,$userData);
-    fclose($db);
-    echo "Password has been changed";
-
+      //  $file=explode(' ',$file);
+         $userData = $_POST['email']." ".$_POST['password'];
+            foreach ($file as $key => $value) {
+                if ($value === $userData) {
+				
+                    $file[$key] = $_POST['email']." ".$_POST['new_password'];
+               ///var_dump($file[$key]);
+					$auth=true;
+					break; 
+					
+				}   			      
+			}  
+			
+		if($auth){
+			$file2=implode(PHP_EOL,$file);
+			$db = fopen("data.txt", "w+");
+			var_dump($file2);
+			fwrite($db,$file2);
+			fclose($db);
+			echo "Parol deyisildi";
+		}else{
+			echo "Alinmadi";
+		}   
+	
+		
 }
 
 ?>
