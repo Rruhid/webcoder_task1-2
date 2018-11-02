@@ -81,7 +81,20 @@ $arr=array("php","js","python");
     $str=implode(" + ", $arr);
     echo "$str";  //php + js + python
 
-
+   $arr1=array(1,2,3,4,5,6,7,8,9);
+    $arr2=array_rand($arr1,2);
+    foreach($arr2 as $element) echo "$element, ";  //0, 7, 
+<?PHP
+    echo strpos("This is a PHP tutorial","PHP");  //10
+    echo strpos("The best time is no time at that time","time");  //9
+    if (strpos("The best time is no time at that time","PHP"))
+    {
+       echo "contain PHP";
+    }
+    else echo "do not contain PHP";
+    //do not contain PHP
+    echo strpos("This is a PHP tutorial","This");  //0
+?>
 
 
 
