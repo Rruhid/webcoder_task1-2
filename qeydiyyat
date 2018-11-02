@@ -1,0 +1,84 @@
+//Qeyiyyat sistemi
+
+ 
+<?php
+if(isset($_POST['submit_reg'])){
+    if ($_POST["password"] === $_POST["confirm-password"]) {
+
+    $var = file( "data.txt", FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES );
+    $exists=false;
+
+    foreach($var as $key=>$value){
+        $user = (explode(' ', $value));
+        if (trim($user[0]) == $_POST['email']) {
+            break;
+        $exists = true;
+        break;
+        }
+
+  }
+
+    if($exists){
+             echo "Bu email artiq movcuddur";
+      }else{
+       $userData = $_POST['email'] . " " . $_POST['password'] . PHP_EOL;
+       file_put_contents("data.txt",$userData.PHP_EOL, FILE_APPEND);
+       echo "Qeydiyyatdan kecdiniz ";
+      }
+  }else{
+   echo "Parollar uygun gelmir";
+  }
+} 
+?>
+
+
+<?php
+if (isset($_POST['submit_log'])) {
+
+ $email =$_POST['email'];
+ $password =$_POST['password'];
+ $file = file( "data.txt", FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES );
+    $auth = false;
+  foreach( $file as $line ) {
+
+    list($email, $password) = explode(" ", $line);
+  
+    if ($_POST['email'] == $email && $_POST['password'] == $password) {
+     $auth =true;
+     break; 
+    }
+  }
+    if($auth) {
+
+    echo "Xos geldiniz";
+    } else {
+    
+    echo "Parol ya daki email duzgun deyil";
+    }
+ }
+?>
+
+
+
+<?php
+
+if (isset($_POST['submit_change'])) {
+
+
+    $file = file("data.txt", FILE_SKIP_EMPTY_LINES|FILE_IGNORE_NEW_LINES);
+
+    $userData = $_POST['email']." ".$_POST['password'];
+
+    foreach ($file as $key => $value) {
+        if ($value === $userData) {
+            $userData = $_POST['email']." ".$_POST['new_password'];
+        } 
+    }
+    $db = fopen("data.txt", "a+");
+    fwrite($db,$userData);
+    fclose($db);
+    echo "Password has been changed";
+
+}
+
+?>
