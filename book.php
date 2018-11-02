@@ -18,3 +18,6 @@ if(isset($_POST['kursdili'])){
     }
 }
 ?>
+
+
+New registration file 
