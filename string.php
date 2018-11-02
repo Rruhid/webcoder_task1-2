@@ -20,3 +20,20 @@ echo $most_common_word;
 
 ?>
 https://www.letsknowit.com/php-programming-questions
+
+//General Tasks 
+
+ $str = "name:john,hone:12345,ebsite:www.23.com";
+ $array=explode(",",$str);
+if(count($array)!=0){
+
+  foreach($array as $value){
+     
+      $data=explode(":",$value);
+      echo $data[0]."=".$data[1];
+      echo ' ';
+    
+    } 
+}
+  
+?>
