@@ -37,3 +37,51 @@ if(count($array)!=0){
 }
   
 ?>
+$images = "image1,image2,image3";
+$images = explode(',', $images);
+
+foreach ($images as $image) {
+    $string .= "'$image',";
+}
+
+echo rtrim($string, ',');
+
+$data = "foo:*:1023:1000::/home/foo:/bin/sh";
+list($user, $pass, $uid, $gid, $gecos, $home, $shell) = explode(":", $data);
+echo $user; // foo
+echo $pass; 
+echo $uid;
+echo $gid;
+
+
+$arr=array ('I','am','simple','boy!');  
+echo implode("-",$arr);
+  
+$str="I am simple boy!";  
+print_r(explode(" ",$str)); 
+
+   $str="The best time is no time";
+    $arr=explode(" ",$str);
+    foreach($arr as $i) echo "$i, ";  //The, best, time, is, no, time, 
+
+
+  $str="The best time is no time";
+    $arr=explode("time",$str);
+    foreach($arr as $i) echo "$i, ";  //The best , is no , , 
+
+    $str="The best time is no time";
+    $arr=explode(" ",$str,3);
+    foreach($arr as $i) echo "$i, ";  //The, best, time is no time, 
+
+   $str="The best time is no time";
+    $arr=explode(" ",$str,-1);
+    foreach($arr as $i) echo "$i, ";  //The, best, time, is, no, 
+
+$arr=array("php","js","python");
+    $str=implode(" + ", $arr);
+    echo "$str";  //php + js + python
+
+
+
+
+
