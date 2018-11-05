@@ -24,9 +24,7 @@ $(document).ready(function(){
 </html>
 
 
-
-/*
-    $("p").bind("click",function(){
+   $("p").bind("click",function(){
         $("This is a click Event").appendTo("body");
     });
    $("p").click(function(){
@@ -68,4 +66,139 @@ $(document).ready(function(){
            window.print();
            return false;
 });
+
+// var maxlength = 15;
+// $('textarea').keyup(function(){
+//     var textlen =maxlength - $(this).val().length;
+//     $('#rchars').text(textlen);
+
+// });
+// <form>
+//         <label>Maximum 15 characters</label>
+//         <textarea id="textarea" maxlength="15"></textarea>
+//           <span id="rchars">15</span> Character(s) Remaining
+// </form>
+colors = { "color1": "Red", "color2": "Green", 'color3': "Blue" };
+
+$.each(colors, function(key, value) {
+    $('#divSelect').append($("<option/>", {
+        value: key,
+        text: value
+    }));
+});
+<div id="divSelect"></div>
+
+
+function Remove_options()
+{
+$('#myColor')
+    .empty()
+    .append('<option selected="selected" value="test">White</option>');
+}
+
+
+
+<p id="item" class="center large">This paragraph refers two classes.</p>
+
+<input type="button" value="Click to remove all classes" onclick="remove_classes()" />
+function remove_classes()
+{
+$("#item").removeClass();
+
+p.center {
+    text-align: center;
+    color: blue;
+}
+
+p.large {
+    font-size: 200%;
+}
+}
+
+function remove_style() {
+$("#MyInput").css("border", "0");
+}
+
+$("li").click(function() {
+   var colorClass = this.className;
+   console.log(colorClass);
+});
+<p>Click on the color and get the class name.</p>
+<ul class="tabs">
+<li class="ff0000">Red</li>
+<li class="000000">Black</li>
+<li class="ffd700">Gold</li>
+</ul>
+
+console.log("Width + padding + borders:" + $("#myText").outerWidth());
+  <style>
+p {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}        
+        
+</style>
+<p id="myText">jQuery Exercises, Practice, Solution</p>
+
+$('#button1').click(function(){ 
+   $('.disabledCheckboxes').prop("disabled", false);
+  
+});
+
+        <input type="checkbox" class="disabledCheckboxes" disabled>Red
+        <input type="checkbox" class="disabledCheckboxes" disabled="disabled">Green
+        <p><input id="button1" type="button" value="Click to enable check boxes"/></p>
+
+<p>Input your Name :</p>
+    <input type="text" name="pname">
+    <input id="button1" type="button" value="Click to set default name" />
+
+$('#button1').click(function(){
+    $('input[name="pname"]').val('Adrian');
+});
+
+
+
+var count=$('#selected p').length;
+console.log(count);
+<div id="selected">
+        <p>Red</p>
+        <p>White</p>
+        <p>Green</p>
+       
+   </div>
+
+$('#button1').click(function(){
+    $("a").removeAttr('href');
+});
+<a href="https://www.w3resource.com/jquery-exercises/">jQuery Exercises, Practice, Solution</a>
+<p></p>
+<input id="button1" type="button" value="Click to remove the link!" />
+
+How to get the selected value and currently selected text of a dropdown box using jQuery
+$(document).ready(function(){ 
+  $('#button1').click(function(){ 
+   console.log($('#op2').val());
+   console.log($('#op4').val());
+  console.log($('#ddid :selected').text());
+   });
+});
+
+
+ var y =['Red','Green','White','black','Yellow'];
+
+ var remove_item='White';
+
+console.log('Array before removing the element ='+y);
+
+y=$.grep(y,function(value){
+return value !=remove_item;
+
+});
+console.log('Array after'+y);
+
+});
+*/
 */
