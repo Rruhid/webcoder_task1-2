@@ -22,3 +22,50 @@ $(document).ready(function(){
     </div>
 </body>
 </html>
+
+
+
+/*
+    $("p").bind("click",function(){
+        $("This is a click Event").appendTo("body");
+    });
+   $("p").click(function(){
+    alert("The button was clicked");
+   });
+$('#accept').click(function() {
+	if ($('#submitbtn').is(':disabled')) {
+    	$('#submitbtn').removeAttr('disabled');
+    } else {
+    	$('#submitbtn').attr('disabled', 'disabled');
+    }
+<input id="accept" name="accept" type="checkbox" value="y"/>I accept<br>  
+<input id="submitbtn" disabled="disabled" name="Submit" type="submit" value="Submit" />
+
+});
+$('#accept').click(function(){
+    if($('#submitbtn').is(':disabled')){
+        $('#submitbtn').removeAttr('disabled'); 
+    }else{
+        $('#submitbtn').attr('disabled','disabled');
+    }
+ });
+
+
+
+function blink_text() {
+    $('.blink').fadeOut(500);
+    $('.blink').fadeIn(500);
+}
+    setInterval(blink_text, 1000);
+});
+<p>jQuery <span class="blink">Exercises</span> and Solution</p>
+
+$(document).ready(function(){
+	$("tr:odd").addClass("zebra");
+});
+ 
+ $('a.printPage').click(function(){
+           window.print();
+           return false;
+});
+*/
