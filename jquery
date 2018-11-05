@@ -202,3 +202,87 @@ console.log('Array after'+y);
 });
 */
 */
+
+
+//Making tic-tac game 
+
+<script>
+$(document).ready(function(){
+ 
+ var oyuncu =1;
+    $(".table").click(function(){
+     //alert('Xanalar derc olunur');
+     var secilmistable=$(this);
+     if(secilmistable.hasClass('oyuncu1')||secilmistable.hasClass('oyuncu2')){
+     // alert('Secilmis table');
+
+     }else{
+       if(oyuncu===1){
+
+        secilmistable.addClass('oyuncu1');
+
+              if(qalibgelen('oyuncu1')){
+                   alert('Oyuuncu bir Qalib geldi');
+                  location.reload();
+              }else{
+                oyuncu=2;
+              }
+       // alert('Oyuncu 1Qalib geldi');
+         
+       }else{
+
+        secilmistable.addClass('oyuncu2');
+
+          if(qalibgelen('oyuncu2')){
+            alert('Oyuuncu Iki Qalib geldi');
+            location.reload();
+          }else{
+            oyuncu=1;
+          }
+     
+       }
+
+       function qalibgelen(simvol){
+         if($('.t1').hasClass(simvol) && $('.t2').hasClass(simvol) && $('.t3').hasClass(simvol)){
+              return true;
+          // alert ('Biri  Qalib Gelib');
+         }else if ($('.t4').hasClass(simvol) && $('.t5').hasClass(simvol) && $('.t6').hasClass(simvol)){
+           return true;
+
+         }else if($('.t7').hasClass(simvol) && $('.t8').hasClass(simvol) && $('.t9').hasClass(simvol)){
+           return true;
+
+         }else if($('.t1').hasClass(simvol) && $('.t4').hasClass(simvol) && $('.t7').hasClass(simvol)){
+
+           return true;
+
+         }else if($('.t2').hasClass(simvol) && $('.t5').hasClass(simvol) && $('.t8').hasClass(simvol)){
+           return true;
+
+         }else if($('.t3').hasClass(simvol) && $('.t6').hasClass(simvol) && $('.t9').hasClass(simvol)){
+           return true;
+
+         }else if($('.t1').hasClass(simvol) && $('.t5').hasClass(simvol) && $('.t9').hasClass(simvol)){
+           return true;
+
+         }else if($('.t3').hasClass(simvol) && $('.t5').hasClass(simvol) && $('.t7').hasClass(simvol)){
+           return true;
+           
+         }else{
+           return false;
+         }
+  
+
+       }
+        
+
+     }
+        
+    });
+
+
+
+});
+</script>    
+
+
