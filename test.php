@@ -1,4 +1,5 @@
 //Practice Practice 30-oktyabr
+http://jsfiddle.net/kYwXX/19/
  <?php
 $str="en cox enaan nenjnaadfnn";
 $count=0;
