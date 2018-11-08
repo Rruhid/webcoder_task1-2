@@ -1,6 +1,7 @@
 //Practice Practice 30-oktyabr
 http://jsfiddle.net/kYwXX/19/
 https://jsfiddle.net/u7ycrxph/
+https://jsfiddle.net/u7ycrxph/188/
 https://www.tutorialrepublic.com/faq/how-to-add-remove-table-rows-dynamically-using-jquery.php
 
  <script>
