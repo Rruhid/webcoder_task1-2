@@ -1,6 +1,34 @@
 //Practice Practice 30-oktyabr
 http://jsfiddle.net/kYwXX/19/
 https://www.tutorialrepublic.com/faq/how-to-add-remove-table-rows-dynamically-using-jquery.php
+
+ <script>
+          
+          $(document).ready(function(){
+
+            $('body').on('click','.red',function(){
+              $(this).parents('tr').remove();
+            });
+            
+           
+
+              $("#elave").click(function(){
+                $('#column').show();
+
+              });
+            
+
+              $('#saxla').click(function(){
+                  var metn =$(this).parents('tr').find('input').val();
+                  $(this).closest('tr').children('td').eq(1).text(metn);
+                      
+              });
+
+              
+
+          
+          });  
+        </script>
  <?php
 $str="en cox enaan nenjnaadfnn";
 $count=0;
