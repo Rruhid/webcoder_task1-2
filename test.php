@@ -1,5 +1,6 @@
 //Practice Practice 30-oktyabr
 http://jsfiddle.net/kYwXX/19/
+https://www.tutorialrepublic.com/faq/how-to-add-remove-table-rows-dynamically-using-jquery.php
  <?php
 $str="en cox enaan nenjnaadfnn";
 $count=0;
