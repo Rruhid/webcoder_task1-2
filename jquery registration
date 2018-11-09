@@ -116,3 +116,113 @@ currentRow = null;
 
 </body> 
 </html>
+
+
+Jquery registration form nurla
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+</head>
+<body>
+<body>
+
+
+<table style="width:70%" class="table1 col-md-8 col-md-offset-2" >
+    <></td>
+          <input  type="button" class="add" value="Əlavə">
+
+    <tr>
+      <td>Name</td>
+          
+    </tr>
+       <tr hidden id="td">
+
+                <td>
+                    <input type="text" class="form-control" id="name">
+                </td>
+               
+                <td>
+                    <input  type="button" class="btn btn-primary" value="Saxla">
+                </td>
+
+            </tr>
+ 
+</table>
+
+
+
+ </div>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".add").click(function() {
+                $("#td").show();
+                 $(".btn").click(function() {
+                    $("#td").hide();
+
+                });
+               
+            });
+
+            $(".btn").click(function() {
+                var name = $("#name").val();
+                var markup = "<tr><td>" + name + "</td><td><input type='button' class='btn3' value='Deyis'><input type='button' class='btn2' value='Sil'></td></tr>";
+                $("table tbody").append(markup);
+                var name = $("#name").val('');
+                
+                $('body').on('click', '.btn2', function() {
+                    $(this).parents('tr').remove();
+
+                });
+
+
+
+                $('body').on('click', '.btn3', function() {
+                    var one = $(this).closest('tr').find('td:eq(0)').text(); 
+                    var mark = "<td><input type='text' id='txt1' value='" + one + "'></td><td><input  type='button' class='btn' value='Yadda saxla'></td>";
+
+                    $(this).parents('tr').html(mark);
+                    $(".btn").click(function() {
+                        var a = $("#txt1").val();
+                        var d = "<td>" + a + "</td><td><input type='button' class='btn3' value='Deyis'><input type='button' class='btn2' value='Silmek'></td>";
+                        $(this).parents('tr').html(d);
+
+
+                    });
+
+                });
+
+            });
+
+        });
+    </script>
+
+
+
+
+
+
+</body> 
+</html>
+
+
+
+
+
+
+
+
+
+
+
