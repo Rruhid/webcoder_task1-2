@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-What i mean  i am adding,deleteting tables without problem the code works with editing this is the same till you edit it on 4 time,after 4 attempt it stoppes working here is my github link please look at it and if it is possible let me to know the issue
-https://github.com/Rruhid/webcoder_task1-2/blob/master/file
+
 <head>
     <meta charset="utf-8">
     <title>jQuery Add Table Rows</title>
@@ -14,7 +13,7 @@ https://github.com/Rruhid/webcoder_task1-2/blob/master/file
     <table id="tablo">
         <thead>
                 <tr>
-                    <th id="tab">Name</td>
+                    <th id="tab">Name</th>
                  
                      <td>
                         <input style="background-color:green; color: white; width: 103px" type="button" class="add" value="Əlavə+">
@@ -27,12 +26,13 @@ https://github.com/Rruhid/webcoder_task1-2/blob/master/file
                     </td>
               
                     <td>
-               <span class='saxla'><a class='fa fa-edit btn' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span>
+                       <span class='saxla'><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span>
                     </td>
+
 
                 </tr>
         </thead>
-                <tbody class="tbdy">
+                <tbody >
                      <tr>
 
                     </tr>
@@ -43,43 +43,47 @@ https://github.com/Rruhid/webcoder_task1-2/blob/master/file
      <script>
        
         $(document).ready(function() {
-            $(".add").click(function() {
-                $("#td").show();
-                $(".saxla").click(function() {
-                    $("#td").hide();
-
-                });
-            });
-
-            $(".saxla").click(function() {
-                var name = $("#name").val();
-                var toplam = "<tr><td  style='width:250px'>" + name + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
-                $("table tbody").append(toplam);
-                var name = $("#name").val('');
-
-          
-
-                $('body').on('click', '.delete', function() {
-                    $(this).parents('tr').remove();
-
-                });
-                $('body').on('click', '.edit', function() {
-                    var one = $(this).closest('tr').find('td:eq(0)').text(); 
-                    var edit = "<td><input type='text' style='width:250px' id='text2' value='" + one + "'></td><td><span class='saxla'><a class='fa fa-edit saxla' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span></td>";
-
-                    $(this).parents('tr').html(edit);
-                    $(".saxla").click(function() {
-                        var value = $("#text2").val();
-                      
-                        var saxla= "<td  style='width:250px'>" + value + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
-                        $(this).parents('tr').html(saxla);
-
-
+    
+                    $(".add").click(function() {
+                        $("#td").show('');
+                       
                     });
 
-                });
+                        $(".save").click(function() {
+                            var name = $("#name").val();
+                            var toplam = "<tr><td  style='width:250px'>" + name + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
+                            $("table tbody").append(toplam);
+                            var name = $("#name").val('');
 
-            });
+                     
+
+                            $('body').on('click', '.delete', function() {
+                                $(this).parents('tr').remove();
+
+                            });
+
+                              $("#td").hide();
+
+                        });
+
+
+
+                        $('body').on('click', '.edit', function() {
+                            var one = $(this).closest('tr').find('td:eq(0)').text(); 
+                            var edit = "<td><input type='text' style='width:250px' id='text2' value='" + one + "'></td><td><span class='saxla'><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span></td>";
+
+                            $(this).parents('tr').html(edit);
+                              $(".save").click(function() {
+                                var value = $("#text2").val();
+                              
+                                var save= "<td  style='width:250px'>" + value + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
+                                $(this).parents('tr').html(save);
+                             
+                            
+                            });
+
+                        });
+
 
         });
     </script>
@@ -108,5 +112,4 @@ https://github.com/Rruhid/webcoder_task1-2/blob/master/file
 </body>
 
 </html>
-
 
