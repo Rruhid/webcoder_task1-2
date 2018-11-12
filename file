@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Add Table Rows</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   
+</head>
+
+<body>
+    <table id="tablo">
+        <thead>
+                <tr>
+                    <th id="tab">Name</td>
+                 
+                     <td>
+                        <input style="background-color:green; color: white; width: 103px" type="button" class="add" value="Əlavə+">
+                    </td>
+                </tr>
+                <tr hidden id="td">
+
+                    <td>
+                        <input type="text" style='width:250px'  id="name">
+                    </td>
+              
+                    <td>
+               <span class='saxla'><a class='fa fa-edit btn' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span>
+                    </td>
+
+                </tr>
+        </thead>
+                <tbody class="tbdy">
+                     <tr>
+
+                    </tr>
+                </tbody>
+
+    </table>
+
+     <script>
+       
+        $(document).ready(function() {
+            $(".add").click(function() {
+                $("#td").show();
+                $(".saxla").click(function() {
+                    $("#td").hide();
+
+                });
+            });
+
+            $(".saxla").click(function() {
+                var name = $("#name").val();
+                var toplam = "<tr><td  style='width:250px'>" + name + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
+                $("table tbody").append(toplam);
+                var name = $("#name").val('');
+
+          
+
+                $('body').on('click', '.delete', function() {
+                    $(this).parents('tr').remove();
+
+                });
+                $('body').on('click', '.edit', function() {
+                    var one = $(this).closest('tr').find('td:eq(0)').text(); 
+                    var edit = "<td><input type='text' style='width:250px' id='text2' value='" + one + "'></td><td><span class='saxla'><a class='fa fa-edit saxla' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span></td>";
+
+                    $(this).parents('tr').html(edit);
+                    $(".saxla").click(function() {
+                        var value = $("#text2").val();
+                      
+                        var saxla= "<td  style='width:250px'>" + value + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
+                        $(this).parents('tr').html(saxla);
+
+
+                    });
+
+                });
+
+            });
+
+        });
+    </script>
+
+    <style>
+    
+ #tab{
+    width:200px;
+    }
+      
+ #tablo{
+
+        margin-left:300px;
+        margin-top:100px;
+        }
+
+  td {
+      margin-left:200px;
+      border: 1.5px solid black;
+      background-color: #FFFFFF;
+      color: black;
+                
+            }
+    </style>
+    
+</body>
+
+</html>
+
+
