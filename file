@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-http://jsfiddle.net/ZFWU7/5/
+
 <head>
     <meta charset="utf-8">
     <title>jQuery Add Table Rows</title>
@@ -13,80 +13,101 @@ http://jsfiddle.net/ZFWU7/5/
     <table id="tablo">
         <thead>
                 <tr>
+                    <th>Number</th>
                     <th id="tab">Name</th>
-                 
+                    <th id="tab">surname</th>
+                    <th id="tab">string</th>
+                    
                      <td>
-                        <input style="background-color:green; color: white; width: 103px" type="button" class="add" value="Əlavə+">
+                        <input style="background-color:green; color: white; width: 135px" type="button" class="add" value="Əlavə+">
                     </td>
+
                 </tr>
-                <tr hidden id="td">
-
-                    <td>
-                        <input type="text" style='width:250px'  id="name">
+                <tr hidden class="form_id">
+                
+                    <td >
+                        <input type="text" style='width:250px' >
                     </td>
-              
-                    <td>
-                       <span class='saxla'><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span>
+                     <td>
+                        <input type="text" style='width:250px' >
                     </td>
-
-
+                     <td>
+                        <input type="text" style='width:250px' >
+                    </td>
+                    <td>
+                       <span ><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span>
+                    </td>
                 </tr>
         </thead>
-                <tbody >
-                     <tr>
-
-                    </tr>
-                </tbody>
+        <tbody >
+              
+        </tbody>
 
     </table>
 
      <script>
-       
-        $(document).ready(function() {
-    
-                    $(".add").click(function() {
-                        $("#td").show('');
+              function updateIndex() 
+        { 
+            var say = 0;
+            $("tbody tr").each(function(){
+
+              $(this).find( "td:eq(0)" ).html( ++say);
+           
+             
+            });
+        }
+
+               $(document).ready(function() {
+               
+                $(".add").click(function() {
+          
+                    //$("#td").show();
+                    var value = "<tr><td style='width:20px'></td><td  style='width:250px'><input type='text'  style='width:250px'></td><td  style='width:250px'><input type='text'  style='width:250px'></td><td  style='width:250px'><input type='text'  style='width:250px'></td><td><span ><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td></tr>";
+                       $("table tbody").append(value);
+                       updateIndex();
                        
-                    });
-
-                        $(".save").click(function() {
-                            var name = $("#name").val();
-                            var toplam = "<tr><td  style='width:250px'>" + name + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
-                            $("table tbody").append(toplam);
-                            var name = $("#name").val('');
-
-                     
-
-                            $('body').on('click', '.delete', function() {
-                                $(this).parents('tr').remove();
-
-                            });
-
-                              $("#td").hide();
-
-                        });
+                });
+            });
 
 
+                $('body').on('click', '.save',function() {
+                   // var zero= $(this).closest('tr').find('td:eq(0)').children('td').html();
+                    var name = $(this).closest('tr').find('td:eq(1)').children('input').val();
+                    var lname = $(this).closest('tr').find('td:eq(2)').children('input').val();
+                    var string = $(this).closest('tr').find('td:eq(3)').children('input').val();
 
-                        $('body').on('click', '.edit', function() {
-                            var one = $(this).closest('tr').find('td:eq(0)').text(); 
-                            var edit = "<td><input type='text' style='width:250px' id='text2' value='" + one + "'></td><td><span class='saxla'><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span></td>";
-
-                            $(this).parents('tr').html(edit);
-                              $(".save").click(function() {
-                                var value = $("#text2").val();
-                              
-                                var save= "<td  style='width:250px'>" + value + "</td><td><span class='edit'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
-                                $(this).parents('tr').html(save);
-                             
-                            
-                            });
-
-                        });
+                    var value = "<td style='width:20px'></td><td style='width:250px'>" + name + "</td><td  style='width:250px'>" + lname + "</td><td  style='width:250px'>" + string + "</td><td><span class='edit'style='margin-left:30px'><a class='fa fa-edit' href='javascript: void(0);'>edit</a></span><span class='delete' style='margin-left:30px'><a class='glyphicon glyphicon-trash'href='javascript: void(0);'>delete</a></span></td>";
+                    $(this).closest("tr").html(value);
+                    //var name = $("#name").val('');
+                    updateIndex();
+                    //$("#td").hide();
+                });
 
 
-        });
-    </script>
+                $('body').on('click', '.delete', function()  {
+                    $(this).parents('tr').remove();
+                    updateIndex();
+   
+                    
+                });
+
+
+                 $('body').on('click', '.edit', function() {
+                    
+                    var one =  $(this).closest('tr').find('td:eq(1)').text();
+                    var two =  $(this).closest('tr').find('td:eq(2)').text();
+                    var three = $(this).closest('tr').find('td:eq(3)').text();
+                    var edit = "<td style='width:20px'></td><td><input type='text'  style='width:250px'  value='" + one + "'></td><td><input type='text' style='width:250px' value='" + two + "'></td><td><input type='text'  style='width:250px' value='" + three + "'></td><td><span ><a class='fa fa-edit save' style='margin-left:30px' href='javascript: void(0);'>saxla</a></span></td>";
+                    $(this).parents('tr').html(edit);
+                    updateIndex();
+              
+                });  
+
+
+        
+
+
+</script>
 
     <style>
     
