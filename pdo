@@ -1,0 +1,259 @@
+<?php
+
+$host='localhost';
+$user='root';
+$password='';
+$dbname='test_db';
+
+//Set dsn
+$dsn='mysql:host='.$host.';dbname='.$dbname;
+
+$pdo=new PDO($dsn,$user,$password);
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+
+#pdo query
+
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+// 	echo $row['title'].'<br>';
+
+
+// }
+// while($row=$stmt->fetch(PDO::FETCH_OBJ)){
+
+// 	echo $row->title.'<br>';
+
+
+// }
+
+
+//Prepared statements 
+//prepare and execute
+//unsafe 
+//$sql="SELECT * FROM posts WHERE author='$author' "; in procedural 
+
+//Fetch multiple posts 
+//positional and named parameters 
+
+// $author ='nadir';
+// //positional param
+// $sql='SELECT * FROM post WHERE author= ?';
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute([$author]);
+// $posts=$stmt->fetchAll();
+// //var_dump($posts);
+// foreach($posts as $post){
+// 	echo $post->title.'<br>';
+// }
+
+
+
+//  $author ='nadir';
+//  $is_published =true;
+// //named parametr
+// $sql='SELECT * FROM post WHERE author=:author && is_published=:is_published';
+
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute(["author"=>$author,"is_published"=>$is_published]);
+// $posts=$stmt->fetchAll();
+
+// foreach($posts as $post ){
+// 	echo $post->title.'<br>';
+// }
+
+// $id=3;
+// //fetch single post
+// $sql='SELECT * FROM post WHERE id=:id';
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute(['id'=>$id]);
+// $posts=$stmt->fetch();
+
+// echo $posts->body;
+
+
+//get row count of the table 
+
+// $author='Brad';
+// $is_published=true;
+// $id=1;
+
+// $stmt=$pdo->prepare("SELECT *FROM post WHERE author=?");
+// $stmt->execute([$author]);
+// $postCount=$stmt->rowCount();
+// echo $postCount;
+
+//Inserting data into the dARABASE
+// $body='This is Post five';
+// $author='Kevin';
+
+// $sql='INSERT INTO post (title,body,author)VALUES(:title,:body,:author)';
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute(['title'=>$title,'body'=>$body,'author'=>$author]);
+
+//update data
+// $id=1;
+// $body='This is the updated post';
+// $author='brad';
+// $sql='UPDATE post SET body=:body WHERE id=:id';
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute(['body'=> $body,'id'=>$id]);
+// echo 'Post Addded';
+
+
+//Delete Data
+// $id=3;
+
+// $sql='DELETE FROM post WHERE id=:id';
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute(['id'=>$id]);
+// echo 'POST Deleted ';
+
+//Search data using like operator 
+// $search="%post fife%";
+
+// $sql="SELECT *FROM post WHERE title LIKE ?";
+
+// $stmt=$pdo->prepare($sql);
+// $stmt->execute([$search]);
+// $posts=$stmt->fetchAll();
+
+// foreach($posts as $post){
+// 	echo $post->title.'<br>';
+// }
+
+
+<?php
+
+// try{
+// 	$db= new PDO('mysql:host=localhost;dbname=test_db;charset=utf8','root','');
+// var_dump($db);
+// echo ""
+
+// }catch(Exception $e){
+// 	echo"alinmadi";
+// }
+
+
+
+//1 -query method
+// foreach($db->query("SELECT * FROM names") as $row){
+// 	echo htmlentities($row['name'])." ".$row['lastname']." ".$row['postcode']."<br>";
+// }
+
+
+//2-fetch method
+// $stmt=$db->query("SELECT * FROM names");
+// while($row = $stmt->fetch(PDO::FETCH_ASSOC)){//FETCH_NUM,FETCH_BOTH
+// 		//echo $row['name']." ".$row['lastname']." ".$row['postcode']."<br>";
+
+// 	echo  "<pre>".var_dump($row)."</pre>";
+// }
+//3-FETCH_ALL METHOD 
+// $stmt=$db->query("SELECT * FROM names");
+
+// $results=$stmt->fetchAll();
+
+// foreach($results as $row){
+// 	$firstname=htmlentities($row['1']);
+// 	$lastname=htmlentities($row['2']);
+// 	$postcode=htmlentities($row['3']);
+// 	echo $firstname.' '.$lastname.''.$postcode.'<br>';
+
+// }
+
+//With associative array 
+
+// $stmt=$db->query("SELECT * FROM names");
+
+// $results=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// foreach($results as $row){
+// 	$firstname=htmlentities($row['name']);
+// 	$lastname=htmlentities($row['lastname']);
+// 	$postcode=htmlentities($row['postcode']);
+// 	echo $firstname.' '.$lastname.''.$postcode.'<br>';
+
+// }
+
+
+// //Prepared statements 
+// $stmt=$db->prepare("SELECT * FROM names WHERE name = ? ");
+// $stmt->bindValue(1,'nicolay');
+// $stmt->execute();
+
+// //var_dump($stmt->fetch());
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+// 	echo "<pre>".var_dump($row)."</pre>";
+//}
+
+// $stmt=$db->prepare("SELECT * FROM names WHERE  name =?");
+// $name='sd';
+// $stmt->bindParam(1, $name);
+
+// $stmt->execute();
+
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+// 	$firstname=($row['name']);
+// 	$lastname=($row['lastname']);
+// 	$postcode=($row['postcode']);
+// 	echo $firstname.''.$lastname.''.$postcode.'<br>';
+
+// }
+
+
+// $stmt=$db->prepare("SELECT * FROM names WHERE  name =?");
+// $name='sd';
+// $stmt->bindParam(1, $name);
+
+// $stmt->execute();
+
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+// 	$firstname=($row['name']);
+// 	$lastname=($row['lastname']);
+// 	$postcode=($row['postcode']);
+// 	echo $firstname.''.$lastname.''.$postcode.'<br>';
+
+// }
+
+// $stmt=$db->prepare("SELECT * FROM names WHERE id=? && name =? ");
+// $id='3';
+// $name='sd';
+
+// $stmt->bindParam(1, $id);
+// $stmt->bindParam(2,$name);
+
+// $stmt->execute();
+
+// while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+// 	$firstname=($row['name']);
+// 	$lastname=($row['lastname']);
+// 	$postcode=($row['postcode']);
+// 	echo $firstname.''.$lastname.''.$postcode.'<br>';
+
+// }
+
+//Insert 
+// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (?,?,?)");
+//  $stmt->bindValue(1,'Indira');
+//  $stmt->bindValue(2,'iguana');
+//  $stmt->bindValue(3,'IGI IGI');
+//  $stmt->execute();
+
+
+
+//Insert 2
+// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (:name,:lastname,:postcode)");
+//  $stmt->bindValue(':name','Indira');
+//  $stmt->bindValue('lastname','iguana');
+//  $stmt->bindValue('postcode','IGI IGI');
+//  $stmt->execute();
+
+
+
+
+
+
+?>
