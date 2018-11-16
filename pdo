@@ -254,6 +254,96 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 
 
 
+?>
+
+
+//login sistem in php
+
+<?php include "db.php"; ?>
+<?php
+if(isset($_POST['login']) && isset($_POST['email_3']) && isset($_POST['password_3'])){
+
+  $email_3=trim($_POST['email_3']);
+  $password_3=trim($_POST['password_3']);
+
+  if(empty($email_3)){
+  array_push($errors,'Email Doldurulmalidir');
+  }
+  if(empty($password_3)){
+   array_push($errors,'Parol Yeri doldurulmalidir');
+  }
+
+  if(count($errors)==0){
+     $select=$pdo->prepare("SELECT COUNT(id) FROM   users WHERE email='$email_3' and password='$password_3'");
+
+     $select->execute();
+     $count=$select->fetchColumn();
+    if($count=="1"){
+      $_SESSION['email']=$email_3;
+     header('Location:index.php');
+    }else{
+         array_push($errors,'Bele user movcud deyil');
+
+    }
+
+
+  }
+
+}
+?>
+
+//registration sistem in php
+<?php include "db.php"; ?>
+
+<?php
+
+if(isset($_POST['register']) && isset($_POST['email']) && isset($_POST['password'])){
+
+
+
+  $email=trim($_POST['email']);
+  $password=trim($_POST['password']);
+  $password_2=trim($_POST['password_2']);
+
+  if(empty($email)){
+  	array_push($errors,'Email Doldurulmalidir');
+  }
+  if(empty($password)){
+  	array_push($errors,'Parol Yeri doldurulmalidir');
+  }
+  if($password !=$password_2){
+  	array_push($errors,"Parollar uygun gelmir");
+
+  }
+
+  if(count($errors)==0){
+  $password_hash=md5($password);
+  $insert=$pdo->prepare("INSERT INTO users (email,password) VALUES (:email,:password)");
+  $insert->bindParam(':email',$email);
+  $insert->bindParam(':password',$password_hash);
+  $insert->execute();
+  $_SESSION['email']=$email;
+  $_SESSION['success']='Qeyydiyatdan kecdiniz';
+  header('Location:index.php');
+  }
+
+  
+}
+
+
+
+if(isset($_GET['logout'])){
+	session_destroy();
+	header('location:login.php');
+}
+
 
 
 ?>
+
+
+
+
+
+
+
