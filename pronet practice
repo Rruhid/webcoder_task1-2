@@ -1,0 +1,16 @@
+//$learn=array('Conditionals','arrays','loops');
+// var_dump($learn);
+// echo $learn[1];
+//echo implode("<br>",$learn);//separates array with a specific key
+
+//$learn[]='Build something awesome';
+//array_push($learn,'functions','forms','loops');//adds to the end of element 
+//array_unshift($learn,'html','css');//adds to the begin of element 
+
+//echo 'You removed first key'.array_shift($learn);
+//array_shift($learn); removes first element
+//array_pop(learn) removes last elemnt
+//unset($learn[1],$learn[2]);//removes a specific key
+//$learn=array_values($learn);//refreshs the keys 
+
+//$learn[0]='Email';
