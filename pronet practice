@@ -62,5 +62,15 @@ foreach ($user as  $value) {
   echo $value;
 }
 
+$n=range(11,20);
+
+shuffle($n);
+for($x=0;$x<10;$x++){
+  echo $n[$x].' ';
+  
+}
+
+
+
 
 
