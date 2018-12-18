@@ -14,3 +14,53 @@
 //$learn=array_values($learn);//refreshs the keys 
 
 //$learn[0]='Email';
+
+
+
+//arrays
+// $user[]='Tom';
+// $user[]='root';
+// $user[]='122345';
+// $user[]=true;
+
+// for($i=0,$cnt=count($user);$i<$cnt;$i++){
+//   echo $user[$i];
+// }
+
+
+// $str='Hello world';
+// $len=strlen($str);
+
+// $pos=$len-1;
+// $last=$str{$pos};
+// echo $last;
+
+
+// define('pi',3.14);
+// $index=10*pi;
+// echo $index;
+
+// $a="Hello";
+// $a .="World";
+// echo $a;
+
+
+// $car='mazda';
+// echo isset($car);
+
+// $house='big';
+// empty($house);
+
+
+$user['name']='Tom';
+$user['login']='root';
+$user['pass']='122345';
+$user['age']=25;
+$user[]=true;
+
+foreach ($user as  $value) {
+  echo $value;
+}
+
+
+
