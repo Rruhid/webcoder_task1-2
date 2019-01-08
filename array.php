@@ -1798,7 +1798,40 @@ $names_str.=',';
 }
 echo $names_str;
 
+// $arr=array ('I','am','simple','boy!');  
 
+// $str=implode(" ",$arr);
+
+// echo $str;
+
+// $str="A E, I O U";
+
+// $arr=explode(",",$str);
+
+// print_r($arr);
+
+// $phone_number="oo1-234-5656";
+
+// $arr_ph=explode("-",$phone_number);
+
+// foreach ($arr_ph as $key) {
+// 	echo $key."<br>";
+// }
+
+
+// $gen_string = "This is explode tutorial that enables string split in PHP";
+
+// $arr_string=explode(" ",$gen_string);
+
+// foreach ($arr_string as $key) {
+	
+// 	echo $key."<br>";
+// }
+
+// $arr_numbers=array(5,6,7,8,9);
+// foreach ($arr_numbers as $i) {
+// 	echo $i."<br>";
+// }
 
 
 
