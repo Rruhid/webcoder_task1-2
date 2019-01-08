@@ -1784,4 +1784,23 @@ echo"<br>";
 print_r($ucdencoxherf);
 
 
+<?php
+$names_str='';
+$names=array('Alex','Billy','Tabby',);
+
+foreach ($names as $key =>$name) {
+		$names_str.=$name;
+if($key!==(count($names)-1)){
+$names_str.=',';
+}
+
+	# code...
+}
+echo $names_str;
+
+
+
+
+
+
 
