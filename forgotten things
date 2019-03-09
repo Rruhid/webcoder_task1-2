@@ -37,6 +37,7 @@ $posts=mysqli_num_rows($run_posts);
 <li><a href='profile.php?u_id=new'>Messages</a></li> it sends it
 <li><a href='profile.php?u_id=$user_id'>Messages</a></li> it sends it too
 
+
 profile.php
 session_start();
 if(!isset($_SESSION['user_email'])){
@@ -51,8 +52,10 @@ if(isset($_GET['new'])){
 $get=$_GET['user_id'];
 
 
-
-
+<input type="button" onClick="window.location='http://example.com?var=<?php echo $var ?>'">
+<?php
+    $var = $_GET['var'];
+?>
 
 
 
