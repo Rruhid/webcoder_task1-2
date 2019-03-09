@@ -38,6 +38,8 @@ $posts=mysqli_num_rows($run_posts);
 <li><a href='profile.php?u_id=$user_id'>Messages</a></li> it sends it too
 
 
+
+
 profile.php
 session_start();
 if(!isset($_SESSION['user_email'])){
@@ -63,7 +65,11 @@ echo "<a href='user.php?id=$i'>";
 $i++;
 }
 
+www.htmlexample.org/phpexample.php?name=tom&age=22
 
+echo "<h6>Name " . $_GET["name"] . "</h6>";
+
+echo"<h6>Age " . $_GET["age"] . "</h6>";
 
 
 
