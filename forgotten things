@@ -1,0 +1,63 @@
+//sessions ara created in login 
+
+if isset($_POST['login'])){
+  $email=htmlentities(mysqli_real_escape_string($con,$_POST['email']));
+  $pass=htmlentities(mysqli_real_escape_string($con,$_POST['pass']));
+  $select_user="select  * from users where user_email='$email' AND user_pass='$pass' AND status ='verified'";//from here 
+  $query=mysqli_query($con,$select_user);
+  $check_user=mysqli_num_rows($query);
+  if($check_user == 1){
+  $_SESSION['user_email']=$email;  //here
+  echo "<script>window.open('home.php','_self')</script>";
+  }else{
+    echo "<script>alert("The password or email are incorrect")</script>";
+  }
+
+}
+
+and passing in proper place
+proper.php
+session_start()
+echo $_SESSION['user_email'];
+$user=$_SESSION['user_email'];
+
+$get_user="select * from  users where user_email='$user'";
+$run_user=mysqli_query($con,$get_user);
+$row=mysqli_fetch_array($run_user);
+$user_id=$row['user_id'];
+$user_name=$row['user_name'];
+
+
+//it will take the sessions user 
+$user_posts="select * from posts where user_id='$user_id'";
+$run_posts=mysqli_query($con,$user_posts);
+$posts=mysqli_num_rows($run_posts);
+
+<li><a href='profile.php?<?php echo "u_id=$user_id" ?>'><?php echo "$first_name"; ?></a></li>//it shows on the same url
+<li><a href='profile.php?u_id=new'>Messages</a></li> it sends it
+<li><a href='profile.php?u_id=$user_id'>Messages</a></li> it sends it too
+
+profile.php
+session_start();
+if(!isset($_SESSION['user_email'])){
+header("Location:index.php");
+}
+
+//getting parametrs 
+
+if(isset($_GET['new'])){
+ echo  $new=$_GET['new'];
+}
+$get=$_GET['user_id'];
+
+
+
+
+
+
+
+
+
+
+
+
