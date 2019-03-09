@@ -57,6 +57,11 @@ $get=$_GET['user_id'];
     $var = $_GET['var'];
 ?>
 
+$i=1;
+while($i<=10){
+echo "<a href='user.php?id=$i'>";
+$i++;
+}
 
 
 
