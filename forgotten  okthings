@@ -1,0 +1,48 @@
+$password=password_hash($password,PASSWORD_BCRYPT);  // or with the help of md5
+
+//in signup page we addind mysqli_real_escape_string and htmlentities after that insert it
+// and if the login and register are in the same page we put select for login above the register (but only function )
+$sql1="select * from users where email='$email' AND password='$password'";
+$res1=mysqli_query($con,$sql1);
+if(mysqli_num_rows($res1)>0)
+if($res1){
+header("Location:login.php");
+$_SESSION['message']="Account is already ready";
+
+}else{
+
+$sql="insert into users(email,username,password)VALUES('$email','$username','$password')";
+$res=mysqli_query($con,$sql);
+
+if($res){
+header("Location:login.php");
+$_SESSION['message']="You have been regiustered successfully";
+}else{
+header("Location:login.php");
+$_SESSION['message']="Sorry smt went wrong";
+}
+
+}
+
+
+
+
+//in login.php
+ob_start();
+session_start();
+
+if(isset($_SESSION['message'])){
+echo $_SESSION['message'];
+}
+
+
+
+
+
+
+
+
+
+
+
+
