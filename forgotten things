@@ -120,7 +120,31 @@ if (has_space($string)) {
     echo 'Has atleast one space.';
 } else {
     echo 'Has no space.';
-}         
+}   
+
+////////////searching and changing a string in 3 input fields
+if(isset($_POST['text']) && isset($_POST['searchfor']) && isset($_POST['replacewith'])){
+
+	 $text=$_POST['text'];
+	$search=$_POST['searchfor'];
+$replacewith=$_POST['replacewith'];
+
+
+if(!empty($text) && !empty($search) && !empty($replacewith)){
+			$text = str_replace($search, $replacewith, $text);
+		
+		}
+
+echo $text;
+
+}else{
+	echo "Fill in all fields";
+}
+
+
+?>
+
+
                 
                 
                 
