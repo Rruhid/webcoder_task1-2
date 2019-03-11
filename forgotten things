@@ -143,7 +143,18 @@ echo $text;
 
 
 ?>
+<form action="index.php" method="POST">
+	<textarea name="text" rows="6" cols="30"></textarea>
+	<br>
+Search for<br>	
+<input type="text" name="searchfor"><br>
+Replace with:<br>
+<input type="text" name="replacewith"><br>
 
+<input type="submit" name="user" value="submit">
+
+
+</form>
 
                 
                 
