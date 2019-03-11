@@ -156,7 +156,11 @@ Replace with:<br>
 
 </form>
 
-                
+ ///uploading a file 
+ 
+ $serv=$_SERVER['HTTP_HOST'];
+$images=$serv.'/eeee/img/';
+echo '<img src="'.$images.'showcase.jpg" alt="sssss"/>';               
                 
                 
                 
