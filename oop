@@ -1,0 +1,295 @@
+//index.php
+1
+function greet($greeting){
+
+echo 'Heloo'.$greeting;
+
+}
+greet ('Whats up');
+
+2
+function greet($greeting,$name){
+
+echo $greeting.''.$name;
+
+}
+greet ('Whats up','Brad');
+
+3
+function greet($greeting,$name='Brad'){
+
+echo strtoupper($greeting.' '.$name);
+}
+greet('Whats up');
+
+class my_public {
+    public function myfunc() {
+        $val = "Hello I am public function"; 
+        return $val;
+    }
+}
+class my_static_public {
+    public static function myfunc() {
+        $val = "Hello I am public static function";
+        return $val;
+    }
+}
+
+// Access Test
+$mytest = new my_public();
+print $mytest->myfunc();  // returns 'Hello I am public function'
+print my_static_public::myfunc(); //  returns 'Hello I am public static function'
+
+
+
+
+Practise website
+<?php
+define("GREETING","Hello you! How are you today?");
+echo constant("GREETING");
+?>
+define ("CONSTANT", "Hello world.");
+echo CONSTANT;
+
+config.php
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','');
+define('DB_NAME','db_realEstate');
+
+
+
+
+database.php
+
+include config/config.php
+
+class Database{
+public $host =DB_HOST; //HERE WE CAN WRITE directly names but we do it clearly
+public $user =DB_USER;
+public $pass =DB_PASS;
+public $dbname=DB_NAME;
+
+public $link;
+public $error;
+
+public function __construct(){
+$this->connectDB();
+}
+
+public function connectDB(){
+
+$this->link=new mysqli($this->host,$this->user,$this->pass,$this->dbname);
+  if(!$this->link){
+  $this->error="Connection Failed".$this->link->connect_error;
+  return false;
+  }
+
+}
+
+public function select($query){
+    $result=$this->link->query($query) or die($this->link->error.__LINE__);
+    if($result->num_rows >0){
+      return $result;
+    }else{
+      return false; 
+    }
+
+}
+public function insert($query){
+    $result=$this->link->query($query) or die($this->link->error.__LINE__);
+    if($result->num_rows >0){
+      return $result;
+    }else{
+      return false; 
+    }
+
+}
+public function update($query){
+    $result=$this->link->query($query) or die($this->link->error.__LINE__);
+    if($result->num_rows >0){
+      return $result;
+    }else{
+      return false; 
+    }
+
+}
+public function delete($query){
+    $result=$this->link->query($query) or die($this->link->error.__LINE__);
+    if($result->num_rows >0){
+      return $result;
+    }else{
+      return false; 
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+session.php
+
+
+class Session {
+  
+  public static function init(){
+      if(version_compare(phpversion(),'5.4.0','<')){
+      
+        if(session_id()==''){
+          session_start();
+          }
+        }else{
+          if(session_status()==PHP_SESSION_NONE){
+            session_start();
+          }
+          
+        }
+      
+      }
+      
+      
+ public static  function  set($key, $val){
+     $_SESSION[$key]=$val;
+  }
+  
+  public static function  get($key){
+    
+    if(isset($_SESSION[$key])){
+     return  $_SESSION[$key];
+    }else{
+     return false;
+    }
+  
+  }
+  
+  
+  public function checkSession(){
+    
+    self::init();
+    if(self::get('agentLogin')==false){
+    self::destroy();
+    header("Location:login.php");
+    
+    } 
+  
+  }
+  
+    public function checkLogin(){
+    
+    self::init();
+    if(self::get('agentLogin')==false){
+    self::destroy();
+    header("Location:index.php");
+    
+    } 
+  
+  }
+  
+  
+public static function destroy(){
+  session_destroy();
+  header("Location:login.php");
+
+}
+  
+  
+ 
+}    
+      
+      
+
+
+helpers/format.php
+
+class Format{
+
+public function validation ($data){
+  $data=trim($data);
+  $data=stripcslashes($data);
+  $data=htmlspecialchars($data);
+  return $data;
+
+}
+
+}
+
+
+
+
+classes/agent.php
+
+include_once 'helpers/format.php';
+include_once  'lib/database.php';
+
+class Agent{
+  private $fm;
+  private $db;
+  
+  public function __construct(){
+    
+    $this->fm=new Format();
+    $this->db=new Database()
+  }
+  
+  
+  public function agentRegistration($data){
+    $name=
+  
+  }
+
+}
+
+
+
+
+
+
+login.php
+//here locatid html of login form
+
+include_once 'classes/agent.php';
+
+$ag=new Agent();
+
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+
+$agentReg=$ag->agentRegistration($_POST);//after that we are going to the agent.php
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
