@@ -250,10 +250,70 @@ class Agent{
     $this->db=new Database()
   }
   
+  The same thing we do with agentlogin
+  
+  agentLogin.php
+ include_once 'helpers/format.php';
+include_once  'lib/database.php';
+
+Session::checkLogin();
+?>
+class Agent{
+  private $fm;
+  private $db;
+  
+  public function __construct(){
+    
+    $this->fm=new Format();
+    $this->db=new Database()
+  }
+  
+  
+  
+  
+  
+  
+  
   
   public function agentRegistration($data){
-    $name=
-  
+    $name=mysqli_real_escape_string($this->db->link,$data['name']);
+    $name=mysqli_real_escape_string($this->db->link,$data['adress']);
+    $name=mysqli_real_escape_string($this->db->link,$data['email']);
+    $name=mysqli_real_escape_string($this->db->link,$data['phone']);
+    $name=mysqli_real_escape_string($this->db->link,$data['pass']);// at the same time we should create a table called tbl_agent with those tables
+    
+    $name=$this->fm->validation($name);
+     $name=$this->fm->validation($adress);//fm variable from Format class
+    $name=$this->fm->validation($email);
+    $name=$this->fm->validation($phone);
+    $name=$this->fm->validation($password);
+    
+    if(empty($name) or empty($adress) or empty($phone) or empty($email)){
+        
+        $msg="<span class='error'>Fields must not be empty</span>";
+        return $msg;
+    
+    }
+    
+    $emailQuery="SELECT * FROM tbl_agents WHERE email='$email' LIMIT 1";
+    $result=$this->db->select($emailQuery);
+    
+    if($result){
+       $msg="<span class='error'>Email is already exists</span>";
+        return $msg;
+    }else{
+         
+       $query="INSERT INTO tbl_agents(name,adress,email,phone,password) VALUES('name','$address','$mail','$phone','password')";
+       $row=$this->db->insert($query);
+      if($row){
+        $msg="<span class='success'>Registration success</span>";
+        return $msg;
+      }else{
+        $msg="<span class='error'>Something WENT WRONG</span>";
+        return $msg;
+      }
+    }
+    
   }
 
 }
@@ -277,7 +337,15 @@ $agentReg=$ag->agentRegistration($_POST);//after that we are going to the agent.
 }
 
 
+after div
 
+<?php
+if(isset($agentRag)){
+    echo $agentReg;
+}
+
+
+?>
 
 
 
