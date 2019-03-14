@@ -1,0 +1,119 @@
+firstly he creates index ,login , register.php,profile
+index.php ->which will be your   ...
+
+then he includes 
+Database.php  and Session.php  User.php by including in inc ->>.../nc/Database.php and inc/Session.php and inc/User.php 
+
+
+
+then creates db_lr(database) --  tbl_user(table)->id name username email password
+
+then we work on register I mean we are writing the code in class Database but assignin it in User.php and call
+user object in your index.php after including the user.php in index
+
+
+
+
+
+index.php
+html-dashboard
+$user= new User();
+
+
+
+
+
+
+
+
+login.php
+html-forms input 
+submit with name="login"
+
+
+register.php
+submit with name="register"
+
+
+
+
+
+
+Database.php
+class Database{
+
+     private $hostdb="localhost";
+     private $userdb="root";
+     private $passdb="";
+     private $namedb="db_lr";
+     public $pdo;
+
+    
+    public function __construct(){
+      if(!isset($this->pdo)){
+          try{
+          $link=new PDO("mysql:host=".$this->hostdb.",dbname=".$this->namebd,$this->namedb,$this->pass_db);
+          $link->setAttribute(PDO::ATTR:ERRMODE,PDO::ERRMODE_EXCEPTION);
+          $link->exec("SET CHARACTER SET utf8");
+          $this->pdo=$link;
+          }catch(PDOException $e){
+          die("Failed to connect to database".$e->getMessage());
+          
+          
+          }
+      
+      }
+
+    }
+
+
+}
+
+
+
+
+
+Session.php
+
+class Session{
+public function __construct(){
+
+
+    
+    }
+
+
+}
+
+
+User.php
+include_once 'Session.php';
+include 'Database.php';
+
+class User{
+
+private $db;
+
+public function __construct(){
+
+  $this->db=new Database();
+    
+
+    
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
