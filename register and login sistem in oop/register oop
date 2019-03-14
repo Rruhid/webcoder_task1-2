@@ -9,7 +9,12 @@ Database.php  and Session.php  User.php by including in inc ->>.../nc/Database.p
 then creates db_lr(database) --  tbl_user(table)->id name username email password
 
 then we work on register I mean we are writing the code in class Database but assignin it in User.php and call
-user object in your index.php after including the user.php in index
+user object in your index.php after including the user.php in index after checking that works with database.php is finished 
+we start to work with other models we closing satabase.php and session.php  as in anyyways it was sent to User.php and closing index.php
+ and for register.php we do  the same 
+
+in order to make a register we work with three folders 
+   User.php    register.php
 
 
 
@@ -17,6 +22,7 @@ user object in your index.php after including the user.php in index
 
 index.php
 html-dashboard
+include User.php
 $user= new User();
 
 
@@ -33,6 +39,14 @@ submit with name="login"
 
 register.php
 submit with name="register"
+include User.php
+
+
+$user=new User();
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+$usrRegi=$user->userRegistration($_POST);
+}
+
 
 
 
@@ -98,9 +112,25 @@ public function __construct(){
 
   $this->db=new Database();
     
-
-    
-    }
+ }
+  
+  public function userRegistration($data){
+  
+     $name=$data['name'];
+     $username=$data['username'];
+     $email=$data['email'];
+     $password=md5($data['password']);
+     
+     if($name="" OR $username=="" OR $email=="" OR $password==""){
+          $msg="<div class='alert alert-danger'><strong>Error</strong>Field must be empty</div>";
+          return $msg;
+     }
+     
+     if(strlen($username)<3){
+      $msg="<div class='alert alert-danger'><strong>Error</strong>Username is short</div>";
+          return $msg;
+     }
+  }
 
 
 }
