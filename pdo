@@ -354,6 +354,7 @@ if(isset($_GET['logout'])){
 
 Prefered way to select * in pdo 
 
+right now i use a fetchall but when there is a fetch_assoc you should echo it in foreach like this $row['name'] but with fetch::obj like this $row->name;
 $sql='SELECT * FROM people';
 $statement=$connecton->prepare($sql);
 $statement->execute();
@@ -361,7 +362,23 @@ $people=$statement->fetchAll();
 
 
 
+in edit 
+we send a parameters
+<a href="edit.php?<?= $person['id'] =?>">
 
+and
+$id=$_GET['id'];
+$sql='SELECT * FROM people WHERE id=:id';
+$statement=$connecton->prepare($sql);
+$statement->execute(['id' => $id]);
+$people=$statement->fetchAll(); //or fetch()
+
+
+update
+
+$sql='UPDATE people SET name=:name, email=:email where id=:id';
+$statement=$connection->prepare($sql);
+$statement->execute([':name'=>$name,':email'=>$email,':id'=$id]);
 
 
 
