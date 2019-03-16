@@ -347,3 +347,33 @@ if(isset($_GET['logout'])){
 
 
 
+
+
+
+
+
+Prefered way to select * in pdo 
+
+$sql='SELECT * FROM people';
+$statement=$connecton->prepare($sql);
+$statement->execute();
+$people=$statement->fetchAll();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
