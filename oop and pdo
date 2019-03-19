@@ -1,0 +1,414 @@
+Database.php
+
+<?php
+class Database{
+
+private $hostdb="localhost";
+private $userdb="root";
+private $passdb="";
+private $namedb="db_student";
+
+private $pdo;
+
+
+public function __construct(){
+
+	if(!isset($this->pdo)){
+
+		try{
+
+			$link=new PDO("mysql:host=".$this->hostdb.";dbname=".$this->namedb,$this->userdb,$this->passdb);
+			$link->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			$link->exec("SET CHARACTER SET utf8");
+			$this->pdo=$link;
+
+		}catch(PDOException $e){
+
+			die("Failed to connect with Database".$e->getMessage());
+		}
+
+	}
+
+}
+
+public function select($tableName)
+{
+if($tableName){
+	$sql="SELECT * FROM $tableName";
+	$result=$this->pdo->query($sql);
+
+	if($result->rowCount()>0) {
+
+		while($row=$result->fetch()){
+			$data[]=$row;
+		}
+		return $data;
+ }else{
+ 	return false;
+ }
+
+
+}
+
+}
+
+public function insert($fields){
+
+$sql = "INSERT INTO tbl_student (name, email, phone) VALUES (?,?,?)";
+
+$stmt= $this->pdo->prepare($sql);
+
+$stmt->execute([$fields['name'], $fields['email'], $fields['phone']]);
+
+
+	
+}
+
+
+public function selectOne($id){
+
+$sql="SELECT * FROM tbl_student WHERE id=:id";
+$stmt=$this->pdo->prepare($sql);
+$stmt->bindValue(":id",$id);
+$stmt->execute();
+$result=$stmt->fetch(PDO::FETCH_ASSOC);
+
+return $result;
+}
+
+
+
+public function update($name,$email,$phone,$id){
+$sql = "UPDATE tbl_student SET name=?, email=?, phone=? WHERE id=?";
+
+	$stmt=$this->pdo->prepare($sql);
+	$stmt->execute([$name,$email,$phone,$id]);
+
+
+
+
+	
+}
+
+public function destroy($id){
+
+   $q = "DELETE FROM tbl_student WHERE id = :id";
+    $stmt = $this->pdo->prepare($q);
+    $stmt->execute(array(':id'=>$id));
+    header("Location:index.php");
+
+}
+
+
+public function  handlerErrors(){
+	if(empty($name)){
+		$_SESSION['errors["nameError"]']="The name field is required";
+	}
+	if(empty($email)){
+		$_SESSION['errors["emailError"]']="The email field is required";
+	}
+	if(empty($password)){
+		$_SESSION['errors["phoneError"]']="The phone  password field is required";
+	}
+
+	header("Location:addstudent.php");
+	exit;
+}
+
+public function  handlerSuccess(){
+
+		$_SESSION['success["nameSuccess"]']="iT HAS BEEN SAVED";
+	
+	
+}
+
+
+}
+
+
+
+
+?>
+
+
+addstudent.com
+
+<?php 
+session_start();
+include "inc/header.php";
+include "lib/Database.php";
+
+
+ ?>
+
+
+<?php
+
+if (isset($_POST['submit'])){
+
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$phone=$_POST['phone'];
+
+	$fields=[
+		'name'=>$name,
+		'email'=>$email,
+		'phone'=>$phone
+
+	];
+
+	if(!empty($name) AND !empty($email) AND !empty($phone)){
+
+		$name=filter_var($name,FILTER_SANITIZE_STRING);//removes <script tags >
+		$email=filter_var($email,FILTER_SANITIZE_STRING);
+		$phone=filter_var($phone,FILTER_SANITIZE_STRING);
+
+
+	$login=new Database();
+	$login->insert($fields);
+
+	$login->handlerSuccess();
+
+	if(isset($_SESSION['success["nameSuccess"]'])){
+		?>
+	<div class="alert alert-success" role="alert">
+			<?php echo $_SESSION['success["nameSuccess"]']; ?>
+	</div>
+	<?php
+	}
+			
+	
+}else{
+
+	$session=new Database();
+	$session->handlerErrors();
+
+	//$error="Butun xanalari doldurun";
+	//echo "FIll in all fields";
+}
+
+
+}
+
+
+?>
+
+<div class="panel-heading">
+	<h2>ADD student data<a class="pull-right btn btn-danger" href="index.php">Back</a></h2>
+	
+</div>
+<div class="panel-body">
+	<form action ="" method="POST">
+		<div class="form-group">
+			<label for="name">Student NAME</label>
+			<input type="text" class="form-control" name="name" id="name">
+	
+			<?php
+			if(isset($_SESSION['errors["nameError"]'])){
+				?>
+			<div class="alert alert-danger" role="alert">
+					<?php echo $_SESSION['errors["nameError"]']; ?>
+			</div>
+			<?php
+			}
+			?>
+		</div>
+			<div class="form-group">
+			<label for="name">Student Email</label>
+			<input type="email"class="form-control" name="email" id="email">
+			<?php
+			if(isset($_SESSION['errors["emailError"]'])){
+				?>
+			<div class="alert alert-danger" role="alert">
+					<?php echo $_SESSION['errors["emailError"]']; ?>
+			</div>
+			<?php
+			}
+			?>
+		</div>
+			<div class="form-group">
+			<label for="name">Student Phone</label>
+			<input type="phone" class="form-control" name="phone" id="phone">
+			<?php
+			if(isset($_SESSION['errors["phoneError"]'])){
+				?>
+			<div class="alert alert-danger" role="alert">
+					<?php echo $_SESSION['errors["phoneError"]']; ?>
+			</div>
+			<?php
+			}
+			?>
+
+			<?php
+				session_destroy();
+
+			?>
+		</div>
+			<div class="form-group">
+			<input type="hidden" name="action" value="add">
+			<input type="submit"class="btn btn-primary" name="submit" value="Add student">
+		</div>
+	</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+editstudent.php
+
+<?php include "inc/header.php";
+include "lib/Database.php";
+
+
+ ?>
+
+<?php
+if(isset($_GET['id'])){
+
+$uid=$_GET['id'];
+
+$data=new Database();
+
+$result=$data->selectOne($uid);
+
+
+
+}
+
+
+
+
+if (isset($_POST['submit'])){
+
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$phone=$_POST['phone'];
+
+	$login=new Database();
+	$login->update($name,$email,$phone,$uid);
+	header("Location:index.php");
+	
+
+}
+
+?>
+
+
+<div class="panel-heading">
+	<h2>Update student data<a class="pull-right" href="index.php">Back</a></h2>
+	
+</div>
+<div class="panel-body">
+	<form action ="" method="POST">
+		<div class="form-group">
+			<label for="name">Student NAME</label>
+			<input type="text" class="form-control" name="name" id="name" value="<?php echo $result['name']?>">
+		</div>
+			<div class="form-group">
+			<label for="name">Student Email</label>
+			<input type="email"class="form-control" name="email" id="email"value="<?php echo $result['email']?>">
+		</div>
+			<div class="form-group">
+			<label for="name">Student Phone</label>
+			<input type="phone" class="form-control" name="phone" id="phone" value="<?php echo $result['phone']?>">
+		</div>
+			<div class="form-group">
+			<input type="hidden" name="action" value="add">
+			<input type="hidden" name="action" value="add">
+			<input type="submit"class="btn btn-primary" name="submit" value="Edit student">
+		</div>
+	</form>
+
+</div>
+
+
+
+index.php
+
+<?php 
+
+include "inc/header.php";
+include "lib/Database.php";
+ ?>
+
+		<div class="panel-heading">
+			<h2>Student data<a class="pull-right btn btn-primary" href="addstudent.php">Add student</a></h2>
+			
+		</div>
+			<div class="well">
+		<table class="table table-striped">
+			<tr>
+				<th>Serial</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Action</th>
+
+			</tr>
+			<?php
+			$db=new Database();
+			$tableName='tbl_student'; //here the examle of a new trick and continue in line 34 (here)
+			
+			$rows=$db->select($tableName);
+
+			foreach ($rows as $row) {
+
+				$id=$row['id'];
+
+			?>
+			<?php
+
+			if(isset($_GET['del'])){
+
+				$del=$_GET['del'];
+				$up=new Database();
+				$up->destroy($del);
+
+			}
+
+
+
+
+			?>
+
+
+
+
+			<tr>
+				<td><?php echo $row['id'];?></td>
+				<td><?php  echo $row['name'];?></td>
+				<td><?php  echo $row['email'];?><td>
+				<td><?php  echo $row['phone'];?></td>
+				<th>
+				<a class="btn btn-default" href="editstudent.php?id=<?php echo $row['id'];?>">Edit</a>
+             <a class="btn btn-danger"  href="index.php?del=<?php echo $row['id']?>"  onclick="return confirm('Are you sure')">delete</a>
+				</tr>
+
+
+  <?php }?>
+
+			</tr>
+			
+
+
+
+		</table>
+
+
+	
+		</div>
+	</div>
+
+</body>
+</html>
+
+
+
+
