@@ -350,6 +350,39 @@ if(isset($agentRag)){
 
 
 
+//when you are extending two methods with the same name you use parent:: in order to call the other mmethod
+<?php
+
+class test{
+	protected $adsoyad='Tayfun erdibel';
+	public function merhaba(){
+
+		return 'merhabwwa';
+	}
+}
+
+
+class test2 extends test{
+
+	public function dunya(){
+		return 'dunya'.$this->merhaba();
+	}
+	public function merhaba(){
+
+		return parent::merhaba();
+	}
+
+	public function adsoyad(){
+		return $this->adsoyad;
+	}
+
+}
+
+
+$test2=new test2();
+
+echo $test2->dunya();
+echo $test2->merhaba();
 
 
 
