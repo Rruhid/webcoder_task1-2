@@ -124,3 +124,17 @@ echo Test::hello();
 
 
 
+
+class File{
+	const DIRECTORY=__DIR__;
+
+	public function getDirectory(){
+		return self::DIRECTORY;
+	}
+}
+$file= new File;
+echo $file->getDirectory();
+
+
+
+
