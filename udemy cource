@@ -73,3 +73,22 @@ echo $a;
 
 
 
+
+$yazi="tayfun erbilen varsa hec kim yoxdur";
+//echo substr($yazi,0,10)."..";
+
+function kisalt($str,$limit){
+	$karakterSayisi=strlen($str);
+	if($karakterSayisi > $limit){
+		$str=substr($str,0,$limit).'..';
+	}
+	return $str;
+}
+echo kisalt($yazi,5);
+
+
+
+
+
+
+
