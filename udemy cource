@@ -88,6 +88,19 @@ echo kisalt($yazi,5);
 
 
 
+// function test(){
+
+// return 'Test';
+
+// }
+// echo test();
+
+$test=function(){
+
+ return 'Test';
+
+};
+echo $test();
 
 
 
