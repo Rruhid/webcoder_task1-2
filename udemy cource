@@ -111,5 +111,16 @@ echo $test('tayfun');
 
 
 
+class Test{
+	public $a="Hello";
+	public static $b='Tesst2';
+	static public function hello(){
+		//return "Hello world";
+		return self::$a;
+	}
+}
+
+echo Test::hello();
+
 
 
