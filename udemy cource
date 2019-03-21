@@ -138,3 +138,36 @@ echo $file->getDirectory();
 
 
 
+
+<?php
+
+function autoloadController($className)
+{
+    $classFile = __DIR__ . '/app/controller/' . strtolower($className) . '.php';
+    if (file_exists($classFile)){
+        require $classFile;
+    }
+}
+
+spl_autoload_register('autoloadController');
+$home=new Home;
+echo $home->test();
+$home = new App\Controller\Home;
+
+
+
+//namespace App\Controller;
+
+class Home {
+
+    public function test()
+    {
+        return 'Home:Test';
+    }
+
+}
+
+
+
+
+
