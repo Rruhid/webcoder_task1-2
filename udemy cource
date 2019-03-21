@@ -103,5 +103,13 @@ $test=function(){
 echo $test();
 
 
+$test=function($par){
+	return 'test'.$par;
+};
+
+echo $test('tayfun');
+
+
+
 
 
