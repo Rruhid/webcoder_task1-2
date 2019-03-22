@@ -204,7 +204,7 @@ if($ekle){
 
 QUERIES SELECT 
 THIS IS NOT A GOOD PRACTICE TO USE EXECUTE WITH query method 
-this is with query method 
+this is with query method icerideki fetch assoc o keyi goturur 0=>'ds';
 echo "<pre>";
 	$dersler=$db->query('SELECT * FROM ders where id=3')->fetchAll(PDO::FETCH_ASSOC);//or fetch()
 	print_r($dersler);
@@ -217,8 +217,35 @@ $dersler=$sorgu->fetchAll();
 	print_r($dersler);
 
 
+this is another trick
+echo "<pre>";
+$sorgu=$db->prepare('SELECT * FROM ders WHERE id=?');
+$sorgu->execute([
+	3
+]);
+$dersler=$sorgu->fetch(PDO::FETCH_ASSOC);
+print_r($dersler);
 
 
+this is another trick
+echo "<pre>";
+//	$dersler=$db->query('SELECT * FROM ders')->fetch(PDO::FETCH_ASSOC);
+$sorgu=$db->prepare('SELECT * FROM ders');
+$sorgu->execute();
+$dersler=$sorgu->fetchAll();
+	//print_r($dersler);
+
+?>
+<ul>
+	<?php
+	foreach ($dersler as $key) {
+		echo "<li>".$key['basliq']."</li>";
+	}
+
+
+
+	?>
+</ul>
 
 
 
