@@ -168,6 +168,49 @@ class Home {
 }
 
 
+QUERIES 
+try{
+	$user='root';
+$password='';
+
+$db = new PDO('mysql:host=localhost;dbname=dersler', $user, $password);
+
+}catch(PDOException $e){
+	echo $e->getMessage();
+}
+
+
+?>
+
+
+
+$sorgu=$db->prepare('INSERT INTO ders SET
+ basliq=?,
+ icerik=?,
+ onay=?');
+$ekle=$sorgu->execute([
+	'deneme','icerik',1
+]);
+
+if($ekle){
+	echo "Inserted";
+}else{
+	print_r($sorgu->errorInfo());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
