@@ -168,7 +168,8 @@ class Home {
 }
 
 
-QUERIES 
+QUERIES INSERT 
+
 try{
 	$user='root';
 $password='';
@@ -201,10 +202,19 @@ if($ekle){
 
 
 
+QUERIES SELECT 
+THIS IS NOT A GOOD PRACTICE TO USE EXECUTE WITH query method 
+this is with query method 
+echo "<pre>";
+	$dersler=$db->query('SELECT * FROM ders where id=3')->fetchAll(PDO::FETCH_ASSOC);//or fetch()
+	print_r($dersler);
 
 
-
-
+this is with prepare
+$sorgu=$db->prepare('SELECT * FROM ders');
+$sorgu->execute();
+$dersler=$sorgu->fetchAll();
+	print_r($dersler);
 
 
 
