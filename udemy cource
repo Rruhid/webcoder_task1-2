@@ -241,11 +241,16 @@ $dersler=$sorgu->fetchAll();
 	foreach ($dersler as $key) {
 		echo "<li>".$key['basliq']."</li>";
 	}
-
-
-
 	?>
 </ul>
+
+
+<ul>
+<?php foreach ($dersler as $ders) : ?>
+    <?php echo $ders['basliq']; ?>
+
+<?php endforeach; ?>
+</ul>	 
 
 
 
