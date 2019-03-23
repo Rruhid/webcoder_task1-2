@@ -108,6 +108,12 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 //Prepared statements 
 //prepare and execute
 //unsafe 
+
+$dersler=$db->query('SELECT  * FROM ders')->fetchAll(PDO::FETCH_ASSOC);
+echo "<pre>";
+print_r($dersler);
+
+
 //$sql="SELECT * FROM posts WHERE author='$author' "; in procedural 
 
 //Fetch multiple posts 
