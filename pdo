@@ -27,6 +27,84 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 // }
 
 
+
+<?php
+//Insert 
+// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (?,?,?)");
+//  $stmt->bindValue(1,'Indira');
+//  $stmt->bindValue(2,'iguana');
+//  $stmt->bindValue(3,'IGI IGI');
+//  $stmt->execute();
+
+
+
+//Insert 2
+// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (:name,:lastname,:postcode)");
+//  $stmt->bindValue(':name','Indira');
+//  $stmt->bindValue('lastname','iguana');
+//  $stmt->bindValue('postcode','IGI IGI');
+//  $stmt->execute();
+
+//Insert 3
+// $sorgu=$db->prepare('INSERT INTO ders SET 
+// basliq=?,
+// icerik=?,
+// onay=?');
+
+// $ekle=$sorgu->execute([
+
+// 	'deneme baslik','icerik',1
+
+// ]);
+// var_dump($ekle);
+
+
+//Insert 4
+// $sorgu=$db->prepare("INSERT INTO ders(basliq,icerik,onay) VALUES (?,?,?)");
+
+// $sorgu->bindValue(1,'sdfsdf');
+// $sorgu->bindValue(2,'sdf');
+// $sorgu->bindValue(3,'111');
+
+// $ekle=$sorgu->execute();
+// var_dump($ekle);
+
+
+// $sorgu=$db->prepare("INSERT INTO ders(basliq,icerik,onay) VALUES(:basliq,:icerik,:onay)");
+
+// $sorgu->bindValue(':basliq','sdfgfsdf');
+// $sorgu->bindValue(':icerik','sfgfgdf');
+// $sorgu->bindValue(':onay','111');
+
+
+//Insert 5
+// $ekle=$sorgu->execute();
+
+
+// $sql='INSERT INTO ders (basliq,icerik,onay)VALUES(:basliq,:icerik,:onay)';
+// $stmt=$db->prepare($sql);
+// $stmt->execute(['basliq'=>'q','icerik'=>'sd','onay'=>'1']);
+// var_dump($stmt);
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Prepared statements 
 //prepare and execute
 //unsafe 
@@ -82,13 +160,7 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 // $postCount=$stmt->rowCount();
 // echo $postCount;
 
-//Inserting data into the dARABASE
-// $body='This is Post five';
-// $author='Kevin';
 
-// $sql='INSERT INTO post (title,body,author)VALUES(:title,:body,:author)';
-// $stmt=$pdo->prepare($sql);
-// $stmt->execute(['title'=>$title,'body'=>$body,'author'=>$author]);
 
 //update data
 // $id=1;
@@ -235,21 +307,7 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 
 // }
 
-//Insert 
-// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (?,?,?)");
-//  $stmt->bindValue(1,'Indira');
-//  $stmt->bindValue(2,'iguana');
-//  $stmt->bindValue(3,'IGI IGI');
-//  $stmt->execute();
 
-
-
-//Insert 2
-// $stmt=$db->prepare("INSERT INTO names (name,lastname,postcode) VALUES (:name,:lastname,:postcode)");
-//  $stmt->bindValue(':name','Indira');
-//  $stmt->bindValue('lastname','iguana');
-//  $stmt->bindValue('postcode','IGI IGI');
-//  $stmt->execute();
 
 
 
