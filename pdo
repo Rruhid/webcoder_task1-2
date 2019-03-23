@@ -109,6 +109,17 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 //prepare and execute
 //unsafe 
 
+
+$sorgu=$db->prepare('SELECT * FROM ders');
+$sorgu->execute();
+$dersler=$sorgu->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+print_r($dersler);
+
+
+
+
 $dersler=$db->query('SELECT  * FROM ders')->fetchAll(PDO::FETCH_ASSOC);
 echo "<pre>";
 print_r($dersler);
