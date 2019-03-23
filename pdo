@@ -87,6 +87,45 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 // var_dump($stmt);
 ?>
 
+if(isset($_POST['submit'])){
+
+  	$baslik=isset($_POST['basliq'])?$_POST['basliq']: null;
+	 $icerik=isset($_POST['icerik'])?$_POST['icerik']: null;
+	$onay=isset($_POST['onay'])?$_POST['onay']: null;
+
+var_dump($icerik);
+
+
+
+
+	if(!$baslik){
+		echo 'Basliq ekleyin';
+	}elseif($icerik==""){
+	echo "Icerik daxil edilsin";
+	}else{
+		$sorgu=$db->prepare('INSERT INTO ders SET 
+ basliq=?,
+ icerik=?,
+onay=?');
+
+ $ekle=$sorgu->execute([
+
+	$baslik,$icerik,$onay
+
+ ]);
+
+ if($ekle){
+ 	header('Location:index.php');
+ 	echo $sorgu->errorInfo();
+ }
+
+
+	}
+}
+
+
+ ?>
+
 
 
 
