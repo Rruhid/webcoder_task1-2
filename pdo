@@ -109,6 +109,16 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 //prepare and execute
 //unsafe 
 
+$sorgu=$db->prepare('SELECT * FROM ders WHERE id=?');
+$sorgu->execute([
+34
+]);
+$dersler=$sorgu->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+print_r($dersler);
+
+
 
 $sorgu=$db->prepare('SELECT * FROM ders');
 $sorgu->execute();
